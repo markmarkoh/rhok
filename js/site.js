@@ -6,6 +6,7 @@
 function updateNavFn() {
 
     var $window      =   $(window),
+        $body        =   $('body'),
         $nav         =   $("nav:first"),
         nav_height   =   $nav.height(),
         section_ids  =   [],
@@ -32,7 +33,7 @@ function updateNavFn() {
     scroll_fn = function() {
         var scrollTop = $window.scrollTop();
 
-        if (scrollTop >
+        if (scrollTop >=
                 ((section_tops[current_pos + 1] || section_tops[num_sections -1]) - 120)
             ) {
 
@@ -40,12 +41,14 @@ function updateNavFn() {
             current_pos += 1;
             console.log(' + current pos is', section_ids[current_pos]);
 
-        } else if (scrollTop < (section_tops[current_pos - 1]) || 0) {
+        } else if (scrollTop <= ((section_tops[current_pos - 1]) || 0 + 120)) {
 
             current_pos = current_pos >= 1 ? current_pos - 1 : 0;
 
             console.log(' - current pos is', section_ids[current_pos]);
         }
+
+
         if (previous_pos !== current_pos) {
             console.log(previous_pos, current_pos);
             updateNavActiveClass(current_pos);
@@ -74,7 +77,7 @@ function addNavClickToScroll() {
         //up our scrollTop
 
         $('body').animate({
-            scrollTop: target_top
+            scrollTop: target_top - 120
         });
 
         return false;
