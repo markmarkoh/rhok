@@ -252,6 +252,21 @@ a:visited {
   cursor: pointer;
   color: #F93300 !important;
 }
+.logo h1,
+.logo h2,
+.logo h3 {
+  font-weight: normal;
+  margin: 0;
+}
+.logo h2 {
+  text-transform: lowercase;
+  font-size: 1.35em;
+}
+.logo h3 {
+  text-transform: uppercase;
+  font-size: 0.7em;
+  letter-spacing: 0.1em;
+}
 nav {
   width: 50px;
   height: 100%;
@@ -290,6 +305,9 @@ content,
 footer {
   display: block;
   margin-left: 50px
+}
+header {
+  padding: 40px;
 }
 footer {
   height: 400px;
