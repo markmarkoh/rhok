@@ -217,24 +217,36 @@ td { vertical-align: top; }
 /* ==|== primary styles =====================================================
    Author:
    ========================================================================== */
-
+a,
+a:visited {
+  text-decoration: none;
+  cursor: pointer;
+}
 nav {
-  float: left;
   width: 50px;
   height: 100%;
   position: fixed;
+  top: 0;
   background-color: #000;
 }
 nav ul li a {
+  color: #FFF !important;
   display: block;
-  width: 200px;
-  height: 50px;
-  background-color: red;
+  width: 160px;
+  height: 30px;
+  line-height: 30px;
+  padding: 10px 20px;
+  background-color: #00152F;
   margin-left: -150px;
   -webkit-transition: all 0.2s cubic-bezier(0.2, 0.3, 0.05, 1);
 }
 nav ul li a:hover {
   margin-left: 0;
+}
+header,
+content {
+  display: block;
+  margin-left: 50px
 }
 section {
   clear: left;
