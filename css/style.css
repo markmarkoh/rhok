@@ -252,6 +252,12 @@ a:visited {
   cursor: pointer;
   color: #F93300 !important;
 }
+.bg {
+  position: fixed;
+  height: 100%;
+  top: 0;
+  right: 0;
+}
 .logo h1,
 .logo h2,
 .logo h3 {
