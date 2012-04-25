@@ -217,6 +217,9 @@ td { vertical-align: top; }
 /* ==|== primary styles =====================================================
    Author:
    ========================================================================== */
+body{
+  background-color: #D0CEB5;
+}
 a,
 a:visited {
   text-decoration: none;
