@@ -221,6 +221,7 @@ a,
 a:visited {
   text-decoration: none;
   cursor: pointer;
+  color: #F93300 !important;
 }
 nav {
   width: 50px;
@@ -243,10 +244,12 @@ nav ul li a {
 nav ul li.active a {
   background-color: #F93300;
   background-color: rgba(249,51,0,.9);
-  margin-left: 0;
+  cursor: default;
 }
 nav ul li a:hover {
   margin-left: 0;
+  -webkit-border-top-right-radius: 4px;
+  -webkit-border-bottom-right-radius: 4px;
 }
 header,
 content {
