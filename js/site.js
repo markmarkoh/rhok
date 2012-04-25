@@ -12,6 +12,7 @@ function updateNavFn() {
         section_tops =   [],
         num_sections =   0,
         current_pos  =   0,
+        previous_pos =   0,
         scroll_fn
         ;
 
@@ -32,15 +33,32 @@ function updateNavFn() {
         var scrollTop = $window.scrollTop();
 
         if (scrollTop >
-                ((section_tops[current_pos + 1] || section_tops[num_sections -1]) - nav_height)
+                ((section_tops[current_pos + 1] || section_tops[num_sections -1]))
             ) {
+
+
             current_pos += 1;
-                console.log('current pos is', section_ids[current_pos]);
+            console.log(' + current pos is', section_ids[current_pos]);
+
         } else if (scrollTop < (section_tops[current_pos - 1]) || 0) {
+
             current_pos = current_pos >= 1 ? current_pos - 1 : 0;
-                console.log('current pos is', section_ids[current_pos]);
+
+            console.log(' - current pos is', section_ids[current_pos]);
+        }
+        if (previous_pos !== current_pos) {
+            console.log(previous_pos, current_pos);
+            updateNavActiveClass(current_pos);
+            previous_pos = current_pos;
         }
     };
+
+
+    function updateNavActiveClass(current_pos) {
+        $(".active").removeClass("active");
+        $nav.find("a[href='" + section_ids[current_pos] + "']").addClass('active');
+        $(section_ids[current_pos]).addClass('active');
+    }
 
     return scroll_fn;
 
@@ -49,11 +67,11 @@ function updateNavFn() {
 function addNavScrolls() {
    $("nav ul li a").click(function() {
        var $this        = $(this),
-           $html        = $("body"),
            target_id    = $this.attr('href'),
            target_top      = $(target_id).offset().top;
 
-
+        //we can't use translateY here because it does a literal translate and messes
+        //up our scrollTop
 
         $('body').animate({
             scrollTop: target_top
@@ -63,7 +81,7 @@ function addNavScrolls() {
    });
 }
 
-$(window).scroll(_.throttle(updateNavFn()));
+$(window).scroll(updateNavFn());
 
 addNavScrolls();
 
