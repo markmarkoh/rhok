@@ -240,6 +240,11 @@ nav ul li a {
   margin-left: -150px;
   -webkit-transition: all 0.2s cubic-bezier(0.2, 0.3, 0.05, 1);
 }
+nav ul li.active a {
+  background-color: #F93300;
+  background-color: rgba(249,51,0,.9);
+  margin-left: 0;
+}
 nav ul li a:hover {
   margin-left: 0;
 }
