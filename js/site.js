@@ -63,6 +63,7 @@ function updateNavFn() {
         $(section_ids[current_pos]).addClass('active');
     }
 
+    //initialize
     updateNavActiveClass(0);
     scroll_fn();
 
