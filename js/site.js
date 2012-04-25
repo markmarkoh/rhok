@@ -49,12 +49,12 @@ function updateNavFn() {
 function addNavScrolls() {
    $("nav ul li a").click(function() {
        var $this        = $(this),
-           $html        = $("body"),
            target_id    = $this.attr('href'),
            target_top      = $(target_id).offset().top;
 
-
-
+        //we can't use translateY here because it does a literal translate and messes
+        //up our scrollTop
+        
         $('body').animate({
             scrollTop: target_top
         });
