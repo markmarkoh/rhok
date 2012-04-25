@@ -293,9 +293,9 @@ footer {
 }
 section {
   clear: left;
+  height: 500px;
+  border:1px solid blue;
 }
-
-
 
 
 
