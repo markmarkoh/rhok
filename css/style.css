@@ -241,6 +241,9 @@ td { vertical-align: top; }
 }
 body{
   background-color: #D0CEB5;
+}
+body,
+input {
   font-family: 'DigitalTS-Regular', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 a,
