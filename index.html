@@ -16,7 +16,6 @@
   <link rel="shortcut icon" href="/img/favicon.ico">
 	<!-- <link rel="apple-touch-icon" href="_/img/apple-touch-icon.png"> -->
   <link rel="stylesheet" href="css/style.css">
-
   <script src="js/vendor/modernizr-2.5.3.min.js"></script>
   <style>
     section { 
@@ -29,7 +28,7 @@
 <body>
   <nav>
     <ul>
-      <li><a href="#first">First<span>1</span></a></li>
+      <li><a href="#first">Sign up<span>1</span></a></li>
       <li><a href="#second">Second<span>2</span></a></li>
       <li><a href="#third">Third<span>3</span></a></li>
       <li><a href="#fourth">Fourth<span>4</span></a></li>
@@ -44,7 +43,17 @@
   </header>
   <content>
     <section id="first">
-      hey man
+      <form action="" method="post" id="initial_reg_form">
+      
+        <label for="reg_name">name:</label>
+        <input type="text" name="reg_name" id="reg_name" placeholder="Name">
+        
+        <label for="reg_email">email:</label>
+        <input type="text" name="reg_email" placeholder="Email">
+        
+        <input type="submit" name="reg_submit" value="sign up!">
+      
+      </form>
     </section>
     <section id="second">
       second

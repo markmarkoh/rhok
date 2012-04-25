@@ -64,6 +64,7 @@ function updateNavFn() {
     }
 
     updateNavActiveClass(0);
+    scroll_fn();
 
     return scroll_fn;
 
