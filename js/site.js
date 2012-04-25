@@ -33,7 +33,7 @@ function updateNavFn() {
         var scrollTop = $window.scrollTop();
 
         if (scrollTop >
-                ((section_tops[current_pos + 1] || section_tops[num_sections -1]))
+                ((section_tops[current_pos + 1] || section_tops[num_sections -1]) - 120)
             ) {
 
 
@@ -81,7 +81,7 @@ function addNavClickToScroll() {
    });
 }
 
-$(window).scroll(updateNavFn());
+$(window).scroll(_.throttle(updateNavFn(), 100));
 
 addNavClickToScroll();
 
