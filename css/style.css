@@ -252,9 +252,13 @@ nav ul li a:hover {
   -webkit-border-bottom-right-radius: 4px;
 }
 header,
-content {
+content,
+footer {
   display: block;
   margin-left: 50px
+}
+footer {
+  height: 400px;
 }
 section {
   clear: left;
