@@ -15,6 +15,7 @@ function updateNavFn() {
         scroll_fn
         ;
 
+    //grab all the nav's anchors and throw them into an array
     $nav.find("ul li a").each(function(key, val) {
         var id = $(val).attr('href');
 
@@ -34,9 +35,10 @@ function updateNavFn() {
                 ((section_tops[current_pos + 1] || section_tops[num_sections -1]) - nav_height)
             ) {
             current_pos += 1;
-            console.log('current pos is', section_ids[current_pos]);
+                console.log('current pos is', section_ids[current_pos]);
         } else if (scrollTop < (section_tops[current_pos - 1]) || 0) {
             current_pos = current_pos >= 1 ? current_pos - 1 : 0;
+                console.log('current pos is', section_ids[current_pos]);
         }
     };
 
@@ -44,7 +46,26 @@ function updateNavFn() {
 
 }
 
+function addNavScrolls() {
+   $("nav ul li a").click(function() {
+       var $this        = $(this),
+           $html        = $("body"),
+           target_id    = $this.attr('href'),
+           target_top      = $(target_id).offset().top;
+
+
+
+        $('body').animate({
+            scrollTop: target_top
+        });
+
+        return false;
+   });
+}
+
 $(window).scroll(_.throttle(updateNavFn()));
+
+addNavScrolls();
 
 
 
