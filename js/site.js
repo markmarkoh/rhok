@@ -56,7 +56,7 @@ function updateNavFn() {
 
     function updateNavActiveClass(current_pos) {
         $(".active").removeClass("active");
-        $nav.find("a[href='" + section_ids[current_pos] + "']").addClass('active');
+        $nav.find("a[href='" + section_ids[current_pos] + "']").parent().addClass('active');
         $(section_ids[current_pos]).addClass('active');
     }
 
@@ -64,7 +64,7 @@ function updateNavFn() {
 
 }
 
-function addNavScrolls() {
+function addNavClickToScroll() {
    $("nav ul li a").click(function() {
        var $this        = $(this),
            target_id    = $this.attr('href'),
@@ -83,7 +83,7 @@ function addNavScrolls() {
 
 $(window).scroll(updateNavFn());
 
-addNavScrolls();
+addNavClickToScroll();
 
 
 
