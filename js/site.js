@@ -41,20 +41,16 @@ function updateNavFn() {
             if (current_pos < num_sections - 1) {
                 current_pos += 1;
             }
-            console.log(' + current pos is', section_ids[current_pos]);
+            //console.log(' + current pos is', section_ids[current_pos]);
 
         } else if (scrollTop <= ((section_tops[current_pos - 1]) || 0 + 120)) {
 
             current_pos = current_pos >= 1 ? current_pos - 1 : 0;
 
-            console.log(' - current pos is', section_ids[current_pos]);
+            //console.log(' - current pos is', section_ids[current_pos]);
         }
 
-        console.log(current_pos);
-
-
         if (previous_pos !== current_pos) {
-            console.log(previous_pos, current_pos);
             updateNavActiveClass(current_pos);
             previous_pos = current_pos;
         }
