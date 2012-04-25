@@ -57,6 +57,7 @@ function updateNavFn() {
     function updateNavActiveClass(current_pos) {
         $(".active").removeClass("active");
         $nav.find("a[href='" + section_ids[current_pos] + "']").addClass('active');
+        $(section_ids[current_pos]).addClass('active');
     }
 
     return scroll_fn;
