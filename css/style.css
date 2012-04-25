@@ -272,7 +272,7 @@ nav {
   height: 100%;
   position: fixed;
   top: 0;
-  background-color: #000;
+  background-color: #00152F;
 }
 nav ul li a {
   color: #FFF !important;
@@ -281,7 +281,6 @@ nav ul li a {
   height: 30px;
   line-height: 30px;
   padding: 10px 0 10px 20px;
-  background-color: #00152F;
   margin-left: -150px;
   -webkit-transition: all 0.2s cubic-bezier(0.2, 0.3, 0.05, 1);
 }
@@ -290,15 +289,17 @@ nav ul li a span {
   width: 50px;
   text-align: center;
 }
-nav ul li.active a {
-  background-color: #F93300;
-  background-color: rgba(249,51,0,.9);
-  cursor: default;
-}
 nav ul li a:hover {
   margin-left: 0;
   -webkit-border-top-right-radius: 4px;
   -webkit-border-bottom-right-radius: 4px;
+  background-color: #000;
+  background-color: rgba(0,0,0,0.9);
+}
+nav ul li.active a {
+  background-color: #F93300;
+  background-color: rgba(249,51,0,.9);
+  cursor: default;
 }
 header,
 content,
