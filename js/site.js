@@ -14,6 +14,7 @@ function updateNavFn() {
         num_sections =   0,
         current_pos  =   0,
         previous_pos =   0,
+        scrolled     =   false,
         scroll_fn
         ;
 
@@ -31,6 +32,7 @@ function updateNavFn() {
     //or lower
     //also, doc better
     scroll_fn = function() {
+
         var scrollTop = $window.scrollTop();
 
         if (scrollTop >=
