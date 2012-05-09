@@ -59,7 +59,7 @@
 
                 cell.increment += increment;
                 cell.transition()
-                    .duration(150)
+                    .duration(130)
                        .style("opacity", cell.increment);
             }
 
@@ -71,7 +71,7 @@
             if( ! this.grid[row][col] ) return;
             this.grid[row][col]
                 .transition()
-                .duration(150)
+                .duration(130)
                     .style("opacity", 0)
                     .delay(10).remove();
 
@@ -158,7 +158,7 @@
 
     //rhok austin starting logo
     var starting = [
-        [11, 12, 23],
+        [11, 12, 22, 23],
         [4, 6, 8, 9, 12, 14, 15, 16, 23],
         [3,  9, 12, 13, 14],
         [2, 4, 6, 9, 10, 12, 14],
@@ -178,8 +178,20 @@
         [],
         [18],
         [20],
-        [18, 20, 21],
-        [15, 19, 20]
+        [18, 21, 22],
+        [15, 20, 21],
+        [],
+        [19], // A
+        [18,20],
+        [18,19,20],
+        [18,20, 23],
+        [23],
+        [18,19,20, 23], //T
+        [19], [19, 22, 23], [22], 
+        [18, 20], //X
+        [19],
+        [18, 20]
+
     ];
 
     //starting = [[],[],[],[],[],[13,14,15]];
