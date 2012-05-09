@@ -17,6 +17,7 @@
   <script src="js/vendor/modernizr-2.5.3.min.js"></script>
 </head>
 <body>
+  <div id="board"></div>
   <nav>
     <ul>
       <li><a href="#first">Sign up<span>1</span></a></li>
@@ -76,9 +77,66 @@
   <script src="/js/vendor/underscore.js"></script>
 
 
-  <script src="/js/vendor/d3.js"></script>
-  <script src="/js/conway.js"></script>
   <script src="/js/site.js"></script>
+
+  <script src="js/libs/d3.js"></script>
+<script src="js/algorithm.js"></script>
+<script src="js/conway.js"></script>
+
+<script>
+    (function() {
+        var $window = $(window),
+            $body = $('body'),
+            height = $('body').height(),
+            isScrollingDown = true,
+            currentScrollPos = 0,
+            prevScrollPos = 0,
+            step = 1,
+            maxSteps = 50,
+            rangeY = d3.scale.linear().range([0, maxSteps]);
+
+
+        window.rangeY = rangeY;
+
+        var updateOnScroll = function() {
+            currentScrollPos = $body.scrollTop();
+
+            if (currentScrollPos > prevScrollPos) {
+                isScrollingDown = true;
+            } else {
+                isScrollingDown = false;
+            }
+
+
+            if ( currentScrollPos < 0 ) {
+                //Hey Lion, Suck it. 
+                return;
+            }
+            //target: 14, current: 10 => go(4);
+            //target 4, current: 6 => go(-2)
+
+            var percentDownThePage = currentScrollPos / height;
+
+            var targetStep = Math.floor ( rangeY( percentDownThePage ) );
+
+
+            if ( ! conway.isUpdating ) {
+                conway.go( targetStep );
+            } else {
+                console.log('miss');
+            }
+
+
+
+
+
+            prevScrollPos = currentScrollPos; 
+
+        };
+
+        $window.scroll(_.throttle( updateOnScroll, 120 ));
+    })();
+</script>
 
   <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
        mathiasbynens.be/notes/async-analytics-snippet -->
