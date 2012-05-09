@@ -15,6 +15,10 @@
 	<!-- <link rel="apple-touch-icon" href="_/img/apple-touch-icon.png"> -->
   <link rel="stylesheet" href="css/style.css">
   <script src="js/vendor/modernizr-2.5.3.min.js"></script>
+  <style>
+    .form_left { float :left ;}
+    .form_right { float : left; margin: 10px;}
+  </style>
 </head>
 <body>
   <div id="board"></div>
@@ -38,19 +42,29 @@
   <content>
     <section id="first">
       <form action="" method="post" id="initial_reg_form">
-        <ul>
-          <li>
-            <label for="reg_name">name:</label>
-            <input type="text" name="reg_name" id="reg_name" placeholder="Name">
-          </li>
-          <li>        
-            <label for="reg_email">email:</label>
-            <input type="text" name="reg_email" placeholder="Email">
-          </li>
-          <li>        
-            <input type="submit" name="reg_submit" value="sign up!">
-          </li>
-        </ul>
+        <div class="form_left">
+          <ul>
+            <li>
+              <label for="reg_name">name:</label>
+              <input type="text" name="reg_name" id="reg_name" placeholder="Name">
+            </li>
+            <li>        
+              <label for="reg_email">email:</label>
+              <input type="text" name="reg_email" placeholder="Email">
+            </li>
+            <li>
+              <label for="reg_twitter">twitter:</label>
+              <input type="text" id="reg_twitter" name="reg_twitter" placeholder="Twitter Handle">
+            </li>
+            <li>        
+              <input type="submit" name="reg_submit" value="sign up!">
+            </li>
+          </ul>
+        </div>
+        <div class="form_right">
+         <span id="login"></span>
+
+        </div>
       </form>
     </section>
     <section id="second">
@@ -146,7 +160,24 @@
         $window.scroll(_.throttle( updateOnScroll, 120 ));
     })();
 </script>
+<script src="http://platform.twitter.com/anywhere.js?id=zKps8a5HkKy1yNQufx6Gxw&v=1" type="text/javascript"></script>
+<script type="text/javascript">
+ 
+  $(function() {
+    twttr.anywhere(function (T) {
+      T("#login").connectButton({ 
+        size: "large",
+        authComplete: function(user) {
+          console.log(user);
 
+          $("#reg_name").val(user.name);
+          $("#reg_twitter").val(user.screenName);
+        }
+      });
+    });
+  });
+ 
+</script> 
   <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
        mathiasbynens.be/notes/async-analytics-snippet -->
   <script>
