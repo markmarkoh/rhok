@@ -240,10 +240,7 @@
 
     for (var i = 0; i < starting.length; i++) {
         for( var j = 0; j < starting[i].length; j++) {
-            Life.grid[i][20 + Math.abs(starting[i][j])] = {
-                value: 1,
-                color: '#FA0'
-            };
+            Life.grid[i][20 + Math.abs(starting[i][j])] = 1;
         }
     }
 
