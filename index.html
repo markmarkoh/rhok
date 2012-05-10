@@ -115,7 +115,7 @@
             currentScrollPos = 0,
             prevScrollPos = 0,
             step = 1,
-            maxSteps = 50,
+            maxSteps = 76,
             rangeY = d3.scale.linear().range([0, maxSteps]);
 
 
@@ -157,7 +157,7 @@
 
         };
 
-        $window.scroll(_.throttle( updateOnScroll, 120 ));
+        $window.scroll(_.throttle( updateOnScroll, 1 ));
     })();
 </script>
 <script src="http://platform.twitter.com/anywhere.js?id=zKps8a5HkKy1yNQufx6Gxw&v=1" type="text/javascript"></script>

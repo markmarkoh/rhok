@@ -113,6 +113,7 @@
             conway.go(1);    -> move back to step 1
         */
         isUpdating: false,
+        calculated: 0,
         init: function() {
                 this.history.push ( Life.copyGrid ( Life.grid ));
                 this.update(1);
@@ -136,6 +137,7 @@
                         }
                     } else {
                         Life.updateState();
+                        this.calculated++;
                         this.history.push( Life.copyGrid ( Life.grid ));
 
                         if (this.step - step < this.drawThreshold ) {
@@ -147,7 +149,9 @@
             } else if (step < this.step) {
                 while ( step < this.step ) {
                     this.step--;
-                    this.update ( this.history[ this.step ], 1);
+                    if ( this.step - step < this.drawThreshold ) {
+                        this.update ( this.history[ this.step ], 1);
+                    }
                 }
             }
 
