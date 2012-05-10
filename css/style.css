@@ -416,9 +416,29 @@ section {
 }
 
 
-        #board {
-            position: fixed;
-            top: 0;
-            right: 0;
-            opacity: 0.94;
-        }
+#board {
+    position: fixed;
+    top: 0;
+    right: 0;
+    opacity: 0.94; 
+}
+
+.registration {
+  display: none;
+}
+
+.registration-loading {
+  background: url('/img/loading.gif') no-repeat 50% 50%;
+  width: 80px;
+  height: 30px;
+}
+
+#user .image {
+  float: left;
+}
+
+ul.info {
+  list-style: none;
+  padding-left: 10px;
+  magin: 0;
+}
