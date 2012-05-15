@@ -360,7 +360,7 @@ nav ul li.active a {
   cursor: default;
 }
 header,
-content,
+.content,
 footer {
   display: block;
 }
@@ -377,7 +377,7 @@ footer {
   -o-box-sizing: border-box;
   box-sizing: border-box;
 }
-content {
+.content {
   margin: 140px 50% 0 50px;
 }
 footer {
