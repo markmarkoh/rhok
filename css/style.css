@@ -240,11 +240,11 @@ td { vertical-align: top; }
 
 }
 body{
-  background-color: #D0CEB5;
+  background: #D0CEB5 url(../img/bg.jpg);
 }
 body,
 input {
-  font-family: 'DigitalTS-Regular', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 a,
 a:visited {
@@ -252,11 +252,44 @@ a:visited {
   cursor: pointer;
   color: #F93300 !important;
 }
+ul, ol {
+  margin: 1em 0;
+  padding: 0;
+  list-style-type: none;
+}
+dt,
+dd {
+  display: inline-block;
+}
+dd {
+  margin: 0;
+}
+dd:after {
+  content: ",";
+}
+dd:last-child:after {
+  content: none;
+}
 .bg {
   position: fixed;
   height: 100%;
   top: 0;
   right: 0;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'DigitalTS-Regular', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+h3,
+h4,
+p {
+  margin: 0 0 20px;
+}
+h3 {
+  font-size: 28px;
+  margin: 0 0 12px;
 }
 header h1,
 header h2,
@@ -278,6 +311,7 @@ header h1.date {
   float: left;
 }
 header h1.date {
+  float: right;
   background-color: rgba(0,0,0,.2);
   color: #FFF;
   text-shadow: 0 -1px rgba(0,0,0,0.4);
@@ -288,6 +322,7 @@ header h1.date {
   letter-spacing: -0.04em;
 }
 nav {
+  font-family: 'DigitalTS-Regular', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   width: 50px;
   height: 100%;
   position: fixed;
@@ -328,25 +363,39 @@ header,
 content,
 footer {
   display: block;
-  margin-left: 50px
 }
-header {
-  padding: 25px 40px;
+#page-header {
+  font-family: 'DigitalTS-Regular', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 25px 40px 40px 90px;
+  width: 100%;
   position: fixed;
   top: 0;
+  background: #D0CEB5 url(../img/bg.jpg);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
 }
 content {
-  margin-top: 140px;
+  margin: 140px 50% 0 50px;
 }
 footer {
   height: 400px;
 }
 section {
   clear: left;
-  height: 500px;
-  border:1px solid blue;
+  padding: 40px;
+  font-size: 14px;
+  line-height: 1.5em;
 }
-
+section img {
+  max-width: 100%;
+  float: left;
+}
+section ul.project-list li {
+  margin-bottom: 60px;
+}
 
 
 
@@ -420,7 +469,8 @@ section {
     position: fixed;
     top: 0;
     right: 0;
-    opacity: 0.94; 
+    opacity: 0.94;
+    z-index: 1; 
 }
 
 .registration {
