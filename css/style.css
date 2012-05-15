@@ -382,6 +382,7 @@ footer {
 }
 footer {
   height: 400px;
+  padding: 0 50px 0 90px;
 }
 section {
   clear: left;
