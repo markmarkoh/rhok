@@ -6,7 +6,7 @@
             currentScrollPos = 0,
             prevScrollPos = 0,
             step = 1,
-            maxSteps = 76,
+            maxSteps = 75,
             rangeY = d3.scale.linear().range([0, maxSteps]);
 
 
