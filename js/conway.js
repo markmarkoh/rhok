@@ -84,14 +84,13 @@
             switch (typeof grid) {
                 case "number":
                     increment = grid;
+                    //leaving break off on purpose
                 case "undefined":
                     grid = Life.grid;
                     break;
                 default:
                     break;
             }
-
-            //keep track of the history
 
             for( var i = 0; i < Life.WIDTH; i++) {
                 for ( var j = 0; j < Life.HEIGHT; j++) {
@@ -105,9 +104,6 @@
         },
 
         /*
-            I love how *this* is my refactor from previously
-            unmanagable.
-
             reasonable options for now:
             conway.go(5);     -> move to step 5
             conway.go(1);    -> move back to step 1
@@ -136,17 +132,23 @@
                             this.update( this.history[ Math.floor(this.step) ], 1);
                         }
                     } else {
+                        //update the game board in memory
                         Life.updateState();
+
+                        //debugging
                         this.calculated++;
+
+                        //add new game board to history
                         this.history.push( Life.copyGrid ( Life.grid ));
 
+                        //update UI
                         if (this.step - step < this.drawThreshold ) {
                             this.update(step);
                         }
                     }
                 }
             //moving backward
-            } else if (step < this.step) {
+            } else if ( step < this.step ) {
                 while ( step < this.step ) {
                     this.step--;
                     if ( this.step - step < this.drawThreshold ) {
@@ -242,6 +244,7 @@
 
     //starting = [[],[],[],[10],[8, 10],[9, 10],[]];
 
+    //initialize form with starting position
     for (var i = 0; i < starting.length; i++) {
         for( var j = 0; j < starting[i].length; j++) {
             Life.grid[i][20 + Math.abs(starting[i][j])] = 1;
