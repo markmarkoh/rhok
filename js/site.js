@@ -33,10 +33,13 @@ function updateNavFn() {
     //also, doc better
     scroll_fn = function() {
 
-        var scrollTop = $window.scrollTop();
+        var scrollTop = $window.scrollTop() + 160;
 
+
+        // if scrollTop is greater than the next(or last) section top minus 120 px
+        // skip to next section
         if (scrollTop >=
-                ((section_tops[current_pos + 1] || section_tops[num_sections -1]) - 120)
+                ((section_tops[current_pos + 1] || section_tops[num_sections -1]))
             ) {
 
 
@@ -45,7 +48,10 @@ function updateNavFn() {
             }
             //console.log(' + current pos is', section_ids[current_pos]);
 
-        } else if (scrollTop <= ((section_tops[current_pos + 1]) || 0 + 120)) {
+
+        }
+        // else if scrollTop is less than the previous's section top plus 120 px
+        else if (scrollTop <= ((section_tops[current_pos]) )) {
 
             current_pos = current_pos >= 1 ? current_pos - 1 : 0;
 
@@ -90,7 +96,7 @@ function addNavClickToScroll() {
    });
 }
 
-$(window).scroll(_.throttle(updateNavFn(), 150));
+$(window).scroll(_.throttle(updateNavFn(), 100));
 
 addNavClickToScroll();
 
