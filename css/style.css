@@ -257,17 +257,17 @@ ul, ol {
   padding: 0;
   list-style-type: none;
 }
-dt,
-dd {
-  display: inline-block;
-}
 dd {
   margin: 0;
 }
-dd:after {
+.project-list dt,
+.project-list dd {
+  display: inline-block;
+}
+.project-list dd:after {
   content: ",";
 }
-dd:last-child:after {
+.project-list dd:last-child:after {
   content: none;
 }
 .bg {
@@ -316,7 +316,13 @@ header h1.date {
   color: #FFF;
   text-shadow: 0 -1px rgba(0,0,0,0.4);
   -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 0 rgba(0,0,0,0.2), 0 1px 0 rgba(255,255,255,0.5);
+  -moz-box-shadow: inset 0 1px 0 rgba(0,0,0,0.2), 0 1px 0 rgba(255,255,255,0.5);
+  -o-box-shadow: inset 0 1px 0 rgba(0,0,0,0.2), 0 1px 0 rgba(255,255,255,0.5);
+  box-shadow: inset 0 1px 0 rgba(0,0,0,0.2), 0 1px 0 rgba(255,255,255,0.5);
   margin: 0 20px;
   padding: 0 20px;
   letter-spacing: -0.04em;
@@ -341,6 +347,9 @@ nav ul li a {
   padding: 10px 0 10px 50px;
   margin-left: -180px;
   -webkit-transition: all 0.2s cubic-bezier(0.2, 0.3, 0.05, 1);
+  -moz-transition: all 0.2s cubic-bezier(0.2, 0.3, 0.05, 1);
+  -o-transition: all 0.2s cubic-bezier(0.2, 0.3, 0.05, 1);
+  transition: all 0.2s cubic-bezier(0.2, 0.3, 0.05, 1);
 }
 nav ul li a span {
   float: right;
@@ -349,8 +358,14 @@ nav ul li a span {
 }
 nav ul li a:hover {
   margin-left: 0;
-  -webkit-border-top-right-radius: 4px;
   -webkit-border-bottom-right-radius: 4px;
+  -webkit-border-top-right-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -moz-border-radius-topright: 4px;
+  -o-border-bottom-right-radius: 4px;
+  -o-border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
   background-color: #000;
   background-color: rgba(0,0,0,0.9);
 }
@@ -397,9 +412,24 @@ section img {
 section ul.project-list li {
   margin-bottom: 60px;
 }
-
-
-
+.user-block {
+  float: left;
+  width: 33%;
+}
+.user-block dl {
+  float: left;
+  margin: 0 10px;
+}
+.user-block .image {
+  float: left;
+  max-width: 20%;
+}
+.user-block .image img {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
 
 
 
