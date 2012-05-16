@@ -45,7 +45,7 @@ function updateNavFn() {
             }
             //console.log(' + current pos is', section_ids[current_pos]);
 
-        } else if (scrollTop <= ((section_tops[current_pos - 1]) || 0 + 120)) {
+        } else if (scrollTop <= ((section_tops[current_pos + 1]) || 0 + 120)) {
 
             current_pos = current_pos >= 1 ? current_pos - 1 : 0;
 
@@ -90,7 +90,7 @@ function addNavClickToScroll() {
    });
 }
 
-$(window).scroll(_.throttle(updateNavFn(), 100));
+$(window).scroll(_.throttle(updateNavFn(), 150));
 
 addNavClickToScroll();
 
