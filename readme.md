@@ -8,7 +8,9 @@ Repo for the RHoK Austin interactive site (not yet released as of 5/14/12)
 Add `127.0.0.1    rhokaustin.org` to your /etc/hosts
 
 `git clone git://github.com/markmarkoh/rhok.git`
+
 `cd rhok`
+
 `python -m SimpleHTTPServer 8081`
 
 hit [http://rhokaustin.org:8081][http://rhokaustin.org:8081] in a browser
