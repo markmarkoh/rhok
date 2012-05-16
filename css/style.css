@@ -281,6 +281,7 @@ h2,
 h3,
 h4 {
   font-family: 'DigitalTS-Regular', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-weight: normal;
 }
 h3,
 h4,
@@ -335,6 +336,15 @@ header h3 {
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
   box-sizing: border-box;
+  background-color: rgba(255,255,255,.6);
+  outline: none;
+  -webkit-transition: all linear .2s;
+  -moz-transition: all linear .2s;
+  -o-transition: all linear .2s;
+  transition: all linear .2s;
+}
+.registration li input[type=text]:hover {
+  background-color: rgba(255,255,255,1);
 }
 .registration li:first-child input[type=text] {
   -webkit-border-top-left-radius: 5px;
@@ -355,6 +365,42 @@ header h3 {
   -o-border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+}
+.registration li input[type=submit] {
+  height: 38px;
+  width: 100%;
+  text-align: center;
+  color: #FFF;
+  font-weight: bold;
+  text-decoration: none;
+  display: block;
+  overflow: hidden;
+  padding: 10px 6px;
+  margin: 10px 0;
+  border: 1px solid rgba(0,0,0,.4);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255,255,255,.5)), color-stop(50%, rgba(255,255,255,.1)), color-stop(50%, rgba(0,0,0,.05)), color-stop(100%, rgba(0,0,0,0)));
+  background-image: -webkit-linear-gradient(top, rgba(255,255,255,.5) 0%, rgba(255,255,255,.1) 50%, rgba(0,0,0,.05) 50%, rgba(0,0,0,0) 100%);
+  background-image: -moz-linear-gradient(top, rgba(255,255,255,.5) 0%, rgba(255,255,255,.1) 50%, rgba(0,0,0,.05) 50%, rgba(0,0,0,0) 100%);
+  background-image: -ms-linear-gradient(top, rgba(255,255,255,.5) 0%, rgba(255,255,255,.1) 50%, rgba(0,0,0,.05) 50%, rgba(0,0,0,0) 100%);
+  background-image: -o-linear-gradient(top, rgba(255,255,255,.5) 0%, rgba(255,255,255,.1) 50%, rgba(0,0,0,.05) 50%, rgba(0,0,0,0) 100%);
+  background-image: linear-gradient(top, rgba(255,255,255,.5) 0%, rgba(255,255,255,.1) 50%, rgba(0,0,0,.05) 50%, rgba(0,0,0,0) 100%);
+  -webkit-background-clip: padding-box;
+  -webkit-transition: all linear .2s;
+  -moz-transition: all linear .2s;
+  -o-transition: all linear .2s;
+  transition: all linear .2s;
+  text-shadow: 0 -1px rgba(0,0,0,.4);
+  -webkit-box-shadow: 0 1px 0 #FFF, inset 0 1px 0 rgba(255,255,255,.4);
+  -moz-box-shadow: 0 1px 0 #FFF, inset 0 1px 0 rgba(255,255,255,.4);
+  -o-box-shadow: 0 1px 0 #FFF, inset 0 1px 0 rgba(255,255,255,.4);
+  box-shadow: 0 1px 0 #FFF, inset 0 1px 0 rgba(255,255,255,.4);
+}
+.registration li input[type=submit]:hover {
+  background-color: #E03004;
 }
 .lockup,
 header h1.date {
