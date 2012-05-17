@@ -252,6 +252,14 @@ a:visited {
   cursor: pointer;
   color: #F93300 !important;
 }
+table {
+  width: 100%;
+}
+table th,
+table td {
+  text-align: left;
+  padding: 10px;
+}
 ul, ol {
   margin: 1em 0;
   padding: 0;
@@ -382,6 +390,7 @@ header h3 {
   -moz-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px;
+  background-color: #91968C;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255,255,255,.5)), color-stop(50%, rgba(255,255,255,.1)), color-stop(50%, rgba(0,0,0,.05)), color-stop(100%, rgba(0,0,0,0)));
   background-image: -webkit-linear-gradient(top, rgba(255,255,255,.5) 0%, rgba(255,255,255,.1) 50%, rgba(0,0,0,.05) 50%, rgba(0,0,0,0) 100%);
   background-image: -moz-linear-gradient(top, rgba(255,255,255,.5) 0%, rgba(255,255,255,.1) 50%, rgba(0,0,0,.05) 50%, rgba(0,0,0,0) 100%);
