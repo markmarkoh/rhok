@@ -256,9 +256,17 @@
       Source at: https://github.com/markmarkoh/conwayjs
 
   -->
-<script src="js/algorithm.js"></script>
-<script src="js/conway.js"></script>
-<script src="js/game.js"></script>
+
+  <script>
+  //I work with the A-hole that wrote this yepnope stuff. 
+
+  Modernizr.load({
+    test: Modernizr.svg,
+    yep: ['js/algorithm.js', 'js/conway.js', 'js/game.js']
+  });
+
+  //I wish I didn't.
+  </script>
 
 <script src="http://platform.twitter.com/anywhere.js?id=zKps8a5HkKy1yNQufx6Gxw&amp;v=1" type="text/javascript"></script>
 <script type="text/javascript">

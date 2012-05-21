@@ -11,6 +11,7 @@ function updateNavFn() {
         nav_height   =   $nav.height(),
         section_ids  =   [],
         section_tops =   [],
+        nav_tops     =   [],
         num_sections =   0,
         current_pos  =   0,
         previous_pos =   0,
@@ -23,6 +24,7 @@ function updateNavFn() {
         var id = $(val).attr('href');
 
         section_ids.push( id );
+        nav_tops.push ( $(val).offset().top );
         section_tops.push ( $(id).offset().top );
     });
 
@@ -75,30 +77,29 @@ function updateNavFn() {
     updateNavActiveClass(0);
     scroll_fn();
 
+    (function addNavClickToScroll() {
+       $("nav ul li a").click(function() {
+           var $this        = $(this),
+               target_id    = $this.attr('href'),
+               target_top   = $(target_id).offset().top;
+
+
+            //we can't use translateY here because it does a literal translate and messes
+            //up our scrollTop
+            $('body').animate({
+                scrollTop: target_top - nav_tops[$this.parent().index()] + 41  //almost 42
+            });
+
+            return false;
+       });
+    })();
+
     return scroll_fn;
 
 }
 
-function addNavClickToScroll() {
-   $("nav ul li a").click(function() {
-       var $this        = $(this),
-           target_id    = $this.attr('href'),
-           target_top      = $(target_id).offset().top;
-
-        //we can't use translateY here because it does a literal translate and messes
-        //up our scrollTop
-
-        $('body').animate({
-            scrollTop: target_top - 120
-        });
-
-        return false;
-   });
-}
 
 $(window).scroll(_.throttle(updateNavFn(), 100));
-
-addNavClickToScroll();
 
 
 

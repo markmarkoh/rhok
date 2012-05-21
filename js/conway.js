@@ -24,7 +24,7 @@
         history: [],
         step: 0,
         targetStep: 0,
-        drawThreshold: 150,
+        drawThreshold: 1,
 
         //store parallel grid with references to d3 objects
         grid: Life.copyGrid(Life.grid),
@@ -128,7 +128,7 @@
                     //if we've already hit this level, don't recalc
                     if ( this.history[ this.step ]) {
                         //only draw if it's within 15 steps
-                        if ( this.step - step < this.drawThreshold ) {
+                        if ( step - this.step < this.drawThreshold ) {
                             this.update( this.history[ Math.floor(this.step) ], 1);
                         }
                     } else {
@@ -142,7 +142,7 @@
                         this.history.push( Life.copyGrid ( Life.grid ));
 
                         //update UI
-                        if (this.step - step < this.drawThreshold ) {
+                        if (step - this.step < this.drawThreshold ) {
                             this.update(step);
                         }
                     }
