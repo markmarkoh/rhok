@@ -574,9 +574,11 @@ section ul.project-list li {
   border-radius: 4px;
 }
 section header {
+  height: 30px;
+  line-height: 30px;
   background: #00152F;
   color: white;
-  padding: 16px 40px;
+  padding: 10px 40px;
   margin: 0 -48px 40px -40px;
   font-size: 1em;
   position: relative;
