@@ -35,7 +35,7 @@ function updateNavFn() {
     //also, doc better
     scroll_fn = function() {
 
-        var scrollTop = $window.scrollTop() + 160;
+        var scrollTop = $window.scrollTop() + 264;
 
 
         // if scrollTop is greater than the next(or last) section top minus 120 px
