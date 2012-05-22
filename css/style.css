@@ -316,6 +316,9 @@ header h3 {
   font-size: 0.7em;
   letter-spacing: 0.1em;
 }
+section h3 {
+  line-height: 32px;
+}
 .form_left {
   float: left;
   width: 33%;
@@ -458,10 +461,10 @@ nav ul li a {
   color: #FFF !important;
   text-transform: lowercase;
   display: block;
-  width: 180px;
+  width: 170px;
   height: 30px;
   line-height: 30px;
-  padding: 10px 0 10px 50px;
+  padding: 10px 10px 10px 50px;
   margin-left: -180px;
   -webkit-transition: all 0.2s cubic-bezier(0.2, 0.3, 0.05, 1);
   -moz-transition: all 0.2s cubic-bezier(0.2, 0.3, 0.05, 1);
@@ -472,6 +475,11 @@ nav ul li a span {
   float: right;
   width: 50px;
   text-align: center;
+}
+nav ul li a img {
+  width: 26px;
+  float: right;
+  padding: 2px;
 }
 nav ul li a:hover {
   margin-left: 0;
@@ -485,6 +493,9 @@ nav ul li a:hover {
   border-top-right-radius: 4px;
   background-color: #000;
   background-color: rgba(0,0,0,0.9);
+}
+nav ul li:first-child a:hover {
+  margin-left: -180px;
 }
 nav ul li.active a {
   background-color: #F93300;
@@ -592,6 +603,7 @@ section header {
   border-top-right-radius: 10px;
 }
 section header:after {
+  z-index: 2;
   content: "";
   background-color: #E8E6CF;
   position: absolute;
