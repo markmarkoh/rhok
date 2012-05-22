@@ -240,8 +240,7 @@ td { vertical-align: top; }
 
 }
 body,
-#page-header,
-section {
+#page-header {
   background: #D0CEB5 url(../img/bg.jpg);
 }
 body,
@@ -516,7 +515,6 @@ footer {
   padding: 40px;
   font-size: 14px;
   line-height: 1.5em;
-  overflow: hidden;
   -webkit-border-bottom-left-radius: 20px;
   -webkit-border-top-left-radius: 20px;
   -moz-border-radius-bottomleft: 20px;
@@ -525,6 +523,9 @@ footer {
   -o-border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   border-top-left-radius: 20px;
+}
+section {
+  background-color: #F1EFDF;
 }
 section:first-child {
   -webkit-border-top-left-radius: 0;
@@ -571,7 +572,7 @@ section header {
   background: #00152F;
   color: white;
   padding: 16px 40px;
-  margin: 0 0 40px -40px;
+  margin: 0 -48px 40px -40px;
   font-size: 1em;
   position: relative;
   -webkit-border-bottom-right-radius: 10px;
