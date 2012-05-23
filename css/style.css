@@ -591,7 +591,6 @@ section header {
   padding: 10px 40px;
   margin: 0 -48px 40px -40px;
   font-size: 1em;
-  position: relative;
   -webkit-border-bottom-right-radius: 10px;
   -webkit-border-top-right-radius: 10px;
   -moz-border-radius-bottomright: 10px;
@@ -602,15 +601,14 @@ section header {
   border-top-right-radius: 10px;
 }
 section header:after {
+  position: relative;
   z-index: 2;
   content: "";
   background-color: #E8E6CF;
-  position: absolute;
+  float: right;
   width: 80px;
   height: 82px;
-  margin-top: -48px;
-  right: -40px;
-  top: 50%;
+  margin: -64px -60px 0 0;
   -webkit-border-radius: 48px;
   -moz-border-radius: 48px;
   -o-border-radius: 48px;
