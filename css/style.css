@@ -463,8 +463,8 @@ nav ul li a {
   width: 170px;
   height: 30px;
   line-height: 30px;
-  padding: 10px 10px 10px 50px;
-  margin-left: -180px;
+  padding: 10px 10px 10px 90px;
+  margin-left: -220px;
   -webkit-transition: all 0.2s cubic-bezier(0.2, 0.3, 0.05, 1);
   -moz-transition: all 0.2s cubic-bezier(0.2, 0.3, 0.05, 1);
   -o-transition: all 0.2s cubic-bezier(0.2, 0.3, 0.05, 1);
@@ -494,7 +494,7 @@ nav ul li a:hover {
   background-color: #00152F;
 }
 nav ul li:first-child a:hover {
-  margin-left: -180px;
+  margin-left: -220px;
 }
 nav ul li.active a {
   background-color: #F93300;
