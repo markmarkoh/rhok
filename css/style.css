@@ -695,7 +695,7 @@ section header:after {
 
 #board {
     position: fixed;
-    top: 0;
+    top: 156px;
     right: 0;
     opacity: 0.94;
     z-index: 1; 
