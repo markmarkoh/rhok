@@ -25,7 +25,7 @@ function updateNavFn() {
         section_ids.push( id );
 
         //hacky. this fly at the coffee shop has it out for me. that's my excuse.
-        nav_tops.push ( key === 0 ? -40 : $(val).offset().top );
+        nav_tops.push ( key === 0 ? 0 : $(val).offset().top );
 
         section_tops.push ( $(id).offset().top );
     });

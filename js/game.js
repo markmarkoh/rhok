@@ -1,6 +1,6 @@
   (function() {
         var $window = $(window),
-            $body = $('html,body'),
+            $body = $.browser.safari ? $('body') : $('html'),
             height = $('body').height(),
             isScrollingDown = true,
             currentScrollPos = 0,
