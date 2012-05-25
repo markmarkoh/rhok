@@ -37,15 +37,12 @@ function updateNavFn() {
     //also, doc better
     scroll_fn = function() {
 
-        var scrollTop = $body.scrollTop() + 290;
-
-        console.log(scrollTop, section_tops, current_pos);
-
+        var scrollTop = $body.scrollTop();
 
         // if scrollTop is greater than the next(or last) section top minus 120 px
         // skip to next section
         if (scrollTop >
-                ((section_tops[current_pos + 1] || section_tops[num_sections -1]))
+                ((nav_tops[current_pos + 1] || nav_tops[num_sections -1]))
             ) {
 
 
@@ -56,7 +53,7 @@ function updateNavFn() {
 
         }
         // else if scrollTop is less than the previous's section top plus 120 px
-        else if (scrollTop < ((section_tops[current_pos]) )) {
+        else if (scrollTop < ((nav_tops[current_pos]) )) {
 
             current_pos = current_pos >= 1 ? current_pos - 1 : 0;
 
@@ -91,6 +88,8 @@ function updateNavFn() {
             //up our scrollTop
             $body.animate({
                 scrollTop: target_id === "#first" ? 0 : target_top - (nav_tops[$this.parent().index()])
+            }, function() {
+                updateNavActiveClass( section_ids.indexOf(target_id));
             });
 
             return false;
@@ -102,7 +101,9 @@ function updateNavFn() {
 }
 
 
-$(window).scroll(_.throttle(updateNavFn(), 100));
+$(function() {
+    $(window).scroll(updateNavFn());
+});
 
 
 
