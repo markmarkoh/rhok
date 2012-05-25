@@ -745,7 +745,7 @@ section header:after {
    Modify as content requires.
    ========================================================================== */
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 920px) {
   #fifth ul li {
     width: 49%;
   }
