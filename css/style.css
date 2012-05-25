@@ -310,6 +310,14 @@ header h2 {
   text-transform: lowercase;
   font-size: 1.35em;
 }
+#first {
+  margin-bottom: 10px;
+  padding: 40px;
+}
+#first h2 {
+  line-height: 28px;
+  margin-bottom: 30px;
+}
 header h3 {
   text-transform: uppercase;
   font-size: 0.7em;
@@ -377,16 +385,16 @@ section h3 {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
+a.register-btn,
 .registration li input[type=submit] {
-  height: 38px;
-  width: 100%;
   text-align: center;
-  color: #FFF;
+  color: #FFF !important;
+  font-size: 20px;
   font-weight: bold;
   text-decoration: none;
   display: block;
   overflow: hidden;
-  padding: 10px 6px;
+  padding: 16px 6px;
   margin: 10px 0;
   border: 1px solid rgba(0,0,0,.4);
   -webkit-border-radius: 5px;
@@ -411,6 +419,7 @@ section h3 {
   -o-box-shadow: 0 1px 0 #FFF, inset 0 1px 0 rgba(255,255,255,.4);
   box-shadow: 0 1px 0 #FFF, inset 0 1px 0 rgba(255,255,255,.4);
 }
+a.register-btn:hover,
 .registration li input[type=submit]:hover {
   background-color: #E03004;
 }
@@ -531,7 +540,7 @@ footer {
 section,
 footer {
   clear: left;
-  padding: 40px;
+  padding: 0 40px 40px;
   font-size: 14px;
   line-height: 1.5em;
   -webkit-border-bottom-left-radius: 20px;
@@ -595,14 +604,14 @@ section header {
   padding: 10px 40px;
   margin: 0 -48px 40px -40px;
   font-size: 1em;
-  -webkit-border-bottom-right-radius: 10px;
-  -webkit-border-top-right-radius: 10px;
-  -moz-border-radius-bottomright: 10px;
-  -moz-border-radius-topright: 10px;
-  -o-border-bottom-right-radius: 10px;
-  -o-border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  border-top-right-radius: 10px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+  -webkit-border-bottom-left-radius: 0px;
+  -moz-border-radius-bottomleft: 0px;
+  -o-border-bottom-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 section header:after {
   position: relative;
@@ -629,7 +638,9 @@ section header:after {
   background-image: -o-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,.6) 100%);
   background-image: linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,.6) 100%);
 }
-
+.participants {
+  clear: both;
+}
 
 
 
