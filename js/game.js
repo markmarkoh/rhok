@@ -6,7 +6,8 @@
             currentScrollPos = 0,
             prevScrollPos = 0,
             step = 1,
-            maxSteps = 55,
+            isMobile = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/),
+            maxSteps = _.isUndefined(isMobile) ? 25 : 55;
             rangeY = d3.scale.linear().range([0, maxSteps]);
 
 
@@ -23,11 +24,9 @@
 
 
             if ( currentScrollPos < 0 ) {
-                //Hey Lion, Suck it. 
+                //Hey Lion, Suck it.
                 return;
             }
-            //target: 14, current: 10 => go(4);
-            //target 4, current: 6 => go(-2)
 
             var percentDownThePage = currentScrollPos / height;
 
@@ -44,7 +43,7 @@
 
 
 
-            prevScrollPos = currentScrollPos; 
+            prevScrollPos = currentScrollPos;
 
         };
 

@@ -25,17 +25,12 @@
 
       if ( T.isConnected() ) {
         handleLoggedInUser( T.currentUser );
-      } else {
-        $(".registration-loading").fadeOut(function() {
-          $(".registration").fadeIn();
-        })
       } 
 
       T("#login").connectButton({ 
         size: "xlarge",
         authComplete: function(user) {
-          $(".registration").fadeOut('fast');
-      $.post('twitter.php', {"handle": user.screenName, "name": user.name, "url": user.url, "img": user.profileImageUrl}, function(data) {
+          $.post('twitter.php', {"handle": user.screenName, "name": user.name, "url": user.url, "img": user.profileImageUrl}, function(data) {
           handleLoggedInUser(user, data.new);
       });
     }
