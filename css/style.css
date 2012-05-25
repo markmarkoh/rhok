@@ -823,10 +823,23 @@ section header:after {
   #fifth ul li {
     width: 49%;
   }
+  .participants {
+    margin-bottom: 0;
+  }
+  .user-block,
   .user-block .image,
-  section img {
+  section img,
+  .user-block dl {
     float: none;
     max-width: none;
+  }
+  .user-block {
+    width: 49%;
+    display: inline-block;
+    text-align: center;
+  }
+  .user-block dl {
+    margin: 10px;
   }
 }
 
