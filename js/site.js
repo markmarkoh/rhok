@@ -37,7 +37,7 @@ function updateNavFn() {
     //also, doc better
     scroll_fn = function() {
 
-        var scrollTop = $body.scrollTop() + 89;
+        var scrollTop = $body.scrollTop() + 290;
 
         console.log(scrollTop, section_tops, current_pos);
 
