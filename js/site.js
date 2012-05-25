@@ -37,7 +37,7 @@ function updateNavFn() {
     //also, doc better
     scroll_fn = function() {
 
-        var scrollTop = $window.scrollTop() + 250;
+        var scrollTop = $window.scrollTop() + 290;
 
 
         // if scrollTop is greater than the next(or last) section top minus 120 px
@@ -89,7 +89,7 @@ function updateNavFn() {
             //we can't use translateY here because it does a literal translate and messes
             //up our scrollTop
             $('body').animate({
-                scrollTop: target_top - (nav_tops[$this.parent().index()] - 40)  //almost 42
+                scrollTop: target_top - (nav_tops[$this.parent().index()])
             });
 
             return false;
