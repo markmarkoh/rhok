@@ -820,6 +820,14 @@ section header:after {
   #board {
     -webkit-transform: translate3d(0, 0, -1px);
   }
+  #fifth ul li {
+    width: 49%;
+  }
+  .user-block .image,
+  section img {
+    float: none;
+    max-width: none;
+  }
 }
 
 
