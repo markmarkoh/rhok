@@ -196,29 +196,6 @@
         <h2>Participants</h2>
       </header>
       <ul class="participants">
-        <!-- sample data -->
-        <li class="user-block">
-          <div class="image"><img src="http://a0.twimg.com/profile_images/1781103354/image1327525969_normal.png" alt=""></div>
-          <dl class="info">
-            <dt class="name">Mark Mark Oh</dt>
-            <dd class="handle"><a href="http://markmarkoh.com/">@markmarkoh</a></dd>
-          </dl>
-        </li>
-        <li class="user-block">
-          <div class="image"><img src="https://twimg0-a.akamaihd.net/profile_images/1619542658/DSCF0073_normal.JPG" alt=""></div>
-          <dl class="info">
-            <dt class="name">A_Zel</dt>
-            <dd class="handle"><a href="http://markmarkoh.com/">@a_zel</a></dd>
-          </dl>
-        </li>
-        <li class="user-block">
-          <div class="image"><img src="https://twimg0-a.akamaihd.net/profile_images/1285691516/Book_Cover_normal.jpeg" alt=""></div>
-          <dl class="info">
-            <dt class="name">Jets Backup</dt>
-            <dd class="handle"><a href="http://markmarkoh.com/">@lt3_sanchez</a></dd>
-          </dl>
-        </li>
-        <!-- end sample data -->
       </ul>
     </section>
     <section id="fifth" class="clearfix">
@@ -274,6 +251,26 @@
 <script type="text/javascript">
  
   $(function() {
+
+    var attendeeTmpl = '<li class="user-block"> <div class="image"><img alt=""></div> <dl class="info"> <dt class="name"></dt> <dd class="handle"><a href=""></a></dd> </dl> </li>';
+
+    (function() {
+
+	var $list = $('.participants');
+
+	$.get('attendees.php', function(data) {
+		if (!data) return;
+		for(var i = 0; i < data.length; i++) {
+			var att = data[i];
+			$(attendeeTmpl)
+				.find('.image img').attr("src", att.img).end()
+				.find('.info .name').text(att.name || '').end()
+				.find('.handle a').text("@" + att.handle).attr('href','http://twitter.com/#/' + att.handle).end()
+				.appendTo($list);
+		}
+	});
+    })();
+
     twttr.anywhere(function (T) {
 
       var user;
@@ -290,20 +287,22 @@
         size: "xlarge",
         authComplete: function(user) {
           $(".registration").fadeOut('fast');
-          handleLoggedInUser(user);
-        }
+	  $.post('twitter.php', {"handle": user.screenName, "name": user.name, "url": user.url, "img": user.profileImageUrl}, function(data) {
+		  handleLoggedInUser(user, data.new);
+	  });
+	}
       });
 
     });
 
-    var handleLoggedInUser = function(user) {
-      console.log('running', user);
-      $('.registration-loading').fadeOut(function() {
-        $("#user")
-          .find('.name').text(user.name).end()
-          .find('.handle a').text('@' + user.screenName).attr('href', user.url).end()
-          .find('.image img').attr('src', user.profileImageUrl);
-        });
+    var handleLoggedInUser = function(user, isNewSignup) {
+	if (isNewSignup) {
+		$(attendeeTmpl)
+		  .find('.name').text(user.name).end()
+		  .find('.handle a').text('@' + user.screenName).attr('href', user.url).end()
+		  .find('.image img').attr('src', user.profileImageUrl).end()
+		  .prependTo( $('.participants') );
+	}
     };
   });
  
