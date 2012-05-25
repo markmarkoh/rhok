@@ -39,30 +39,17 @@ function updateNavFn() {
 
         var scrollTop = $body.scrollTop();
 
-        // if scrollTop is greater than the next(or last) section top minus 120 px
-        // skip to next section
-        if (scrollTop >
-                ((nav_tops[current_pos + 1] || nav_tops[num_sections -1]))
-            ) {
+        if (scrollTop < 10) {
+            updateNavActiveClass(0);
+            return;
+        }
 
+        scrollTop -= 100;
 
-            if (current_pos < num_sections - 1) {
-                current_pos += 1;
+        for(var i = 0; i < section_tops.length; i++) {
+            if ((scrollTop >= section_tops[i]) && (scrollTop < (section_tops[i + 1]) || 10000)) {
+                updateNavActiveClass(i + 1);
             }
-
-
-        }
-        // else if scrollTop is less than the previous's section top plus 120 px
-        else if (scrollTop < ((nav_tops[current_pos]) )) {
-
-            current_pos = current_pos >= 1 ? current_pos - 1 : 0;
-
-            //console.log(' - current pos is', section_ids[current_pos]);
-        }
-
-        if (previous_pos !== current_pos) {
-            updateNavActiveClass(current_pos);
-            previous_pos = current_pos;
         }
     };
 
@@ -102,7 +89,7 @@ function updateNavFn() {
 
 
 $(function() {
-    $(window).scroll(updateNavFn());
+    $(window).scroll(_.throttle(updateNavFn(), 250));
 });
 
 
