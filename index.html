@@ -256,7 +256,7 @@
 	var $list = $('.participants');
 
 	$.get('attendees.php', function(data) {
-		if (!data && !$.isArray(data)) return;
+		if (!data || !$.isArray(data)) return;
 		for(var i = 0; i < data.length; i++) {
 			var att = data[i];
 			$(attendeeTmpl)
