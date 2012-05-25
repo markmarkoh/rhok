@@ -6,7 +6,7 @@
 function updateNavFn() {
 
     var $window      =   $(window),
-        $body        =   $('body'),
+        $body = $.browser.safari ? $('body') : $('html'),
         $nav         =   $("nav:first"),
         nav_height   =   $nav.height(),
         section_ids  =   [],
@@ -37,12 +37,14 @@ function updateNavFn() {
     //also, doc better
     scroll_fn = function() {
 
-        var scrollTop = $window.scrollTop() + 290;
+        var scrollTop = $body.scrollTop() + 89;
+
+        console.log(scrollTop, section_tops, current_pos);
 
 
         // if scrollTop is greater than the next(or last) section top minus 120 px
         // skip to next section
-        if (scrollTop >=
+        if (scrollTop >
                 ((section_tops[current_pos + 1] || section_tops[num_sections -1]))
             ) {
 
@@ -50,12 +52,11 @@ function updateNavFn() {
             if (current_pos < num_sections - 1) {
                 current_pos += 1;
             }
-            //console.log(' + current pos is', section_ids[current_pos]);
 
 
         }
         // else if scrollTop is less than the previous's section top plus 120 px
-        else if (scrollTop <= ((section_tops[current_pos]) )) {
+        else if (scrollTop < ((section_tops[current_pos]) )) {
 
             current_pos = current_pos >= 1 ? current_pos - 1 : 0;
 
@@ -88,7 +89,7 @@ function updateNavFn() {
 
             //we can't use translateY here because it does a literal translate and messes
             //up our scrollTop
-            $('body').animate({
+            $body.animate({
                 scrollTop: target_id === "#first" ? 0 : target_top - (nav_tops[$this.parent().index()])
             });
 
