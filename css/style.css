@@ -326,6 +326,10 @@ header h3 {
 section h3 {
   line-height: 32px;
 }
+section h3 a,
+section h3 a:visited {
+  color: #00152F !important;
+}
 .form_left {
   float: left;
   width: 33%;
@@ -600,7 +604,7 @@ section header {
   height: 30px;
   line-height: 30px;
   background: #EAE8D1;
-  color: #00152F;
+  color: #F93300;
   padding: 10px 40px;
   margin: 0 -48px 40px -40px;
   font-size: 1em;
