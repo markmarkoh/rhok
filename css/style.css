@@ -275,6 +275,9 @@ strong {
 dd {
   margin: 0;
 }
+.nowrap {
+  white-space: nowrap;
+}
 .project-list dt,
 .project-list dd {
   display: inline-block;
@@ -666,19 +669,34 @@ section header:after {
 
 @media only screen and (max-width: 500px) {
   #page-header {
-    position: static;
+    position: relative;
     height: auto;
     overflow: hidden;
     margin-top: 50px;
     padding: 20px;
+    z-index: 1;
+    text-align: center;
   }
   .content {
     margin: 0;
+    background-color: rgba(233,231,208,.95)
   }
   section,
   #first,
   footer {
     padding: 0 20px 20px;
+  }
+  footer {
+    height: auto;
+  }
+  #first {
+    text-align: center;
+  }
+  #first h2 {
+    margin: 30px 0;
+  }
+  section {
+    background-color: transparent;
   }
   nav {
     width: 100%;
@@ -701,6 +719,20 @@ section header:after {
     padding: 10px;
   }
   nav ul li a .nav-link-text {
+    display: none;
+  }
+  .lockup,
+  header h1.date {
+    float: none;
+    clear: both;
+  }
+  section header {
+    margin: 0 -10px 20px;
+    padding: 5px 15px;
+    background-color: #F93300;
+    color: #FFF;
+  }
+  section header:after {
     display: none;
   }
 }
