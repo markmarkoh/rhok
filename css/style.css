@@ -683,7 +683,6 @@ section ul.project-list li {
 }
 .user-block .image {
   float: left;
-  max-width: 20%;
 }
 .user-block .image img {
   -webkit-border-radius: 4px;
@@ -745,6 +744,30 @@ section header:after {
    This example overrides the primary ('mobile first') styles
    Modify as content requires.
    ========================================================================== */
+
+@media only screen and (max-width: 800px) {
+  #fifth ul li {
+    width: 49%;
+  }
+  .participants {
+    margin-bottom: 0;
+  }
+  .user-block,
+  .user-block .image,
+  section img,
+  .user-block dl {
+    float: none;
+    max-width: none;
+  }
+  .user-block {
+    width: 49%;
+    display: inline-block;
+    text-align: center;
+  }
+  .user-block dl {
+    margin: 10px 10px 0;
+  }
+}
 
 @media only screen and (max-width: 500px) {
   #page-header {
@@ -819,27 +842,6 @@ section header:after {
   }
   #board {
     -webkit-transform: translate3d(0, 0, -1px);
-  }
-  #fifth ul li {
-    width: 49%;
-  }
-  .participants {
-    margin-bottom: 0;
-  }
-  .user-block,
-  .user-block .image,
-  section img,
-  .user-block dl {
-    float: none;
-    max-width: none;
-  }
-  .user-block {
-    width: 49%;
-    display: inline-block;
-    text-align: center;
-  }
-  .user-block dl {
-    margin: 10px 10px 0;
   }
 }
 
