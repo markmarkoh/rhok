@@ -870,7 +870,7 @@ section header:after {
     top: 156px;
     right: 0;
     opacity: 0.94;
-    z-index: 1; 
+    z-index: 0; 
 }
 
 .registration {
