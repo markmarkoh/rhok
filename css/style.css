@@ -839,7 +839,7 @@ section header:after {
     text-align: center;
   }
   .user-block dl {
-    margin: 10px;
+    margin: 10px 10px 0;
   }
 }
 

@@ -266,6 +266,27 @@
 
   //I wish I didn't.
   </script>
+  <script>
+		window.addEventListener("load",function() {
+		  setTimeout(function(){
+		    window.scrollTo(0, 1);
+		  }, 0);
+		});
+	</script>
+	<script>
+		if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i)) {
+      document.body.className += ' apple';
+		  var viewportmeta = document.querySelector('meta[name="viewport"]');
+		  if (viewportmeta) {
+		    viewportmeta.content = 'width=device-width, minimum-scale=1.0, maximum-scale=1.0';
+		    document.body.addEventListener('gesturestart', function() {
+		      viewportmeta.content = 'width=device-width, minimum-scale=0.25, maximum-scale=1.6';
+		    }, false);
+      }
+    } else if (navigator.userAgent.match(/Android/i)) {
+      document.body.className += ' android';
+    }
+	</script>
 
 <script src="http://platform.twitter.com/anywhere.js?id=zKps8a5HkKy1yNQufx6Gxw&amp;v=1" type="text/javascript"></script>
 <script src="js/twitter.js"></script>
