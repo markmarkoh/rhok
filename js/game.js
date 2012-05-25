@@ -7,11 +7,13 @@
             prevScrollPos = 0,
             step = 1,
             isMobile = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/),
-            maxSteps = _.isUndefined(isMobile) ? 25 : 55;
+            maxSteps = isMobile ? 25 : 55,
             rangeY = d3.scale.linear().range([0, maxSteps]);
 
 
         window.rangeY = rangeY;
+
+        alert(maxSteps);
 
         var updateOnScroll = function() {
             currentScrollPos = $body.scrollTop();
