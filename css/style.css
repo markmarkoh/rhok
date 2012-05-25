@@ -806,7 +806,7 @@ section header:after {
     clear: both;
   }
   header h1.date {
-    font-size: 28px;
+    font-size: 26px;
   }
   section header {
     margin: 0 -10px 20px;
@@ -818,7 +818,7 @@ section header:after {
     display: none;
   }
   #board {
-    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, -1px);
   }
 }
 
