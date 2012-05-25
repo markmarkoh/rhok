@@ -13,8 +13,6 @@
 
         window.rangeY = rangeY;
 
-        alert(maxSteps);
-
         var updateOnScroll = function() {
             currentScrollPos = $body.scrollTop();
 
