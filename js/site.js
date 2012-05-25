@@ -89,7 +89,7 @@ function updateNavFn() {
             //we can't use translateY here because it does a literal translate and messes
             //up our scrollTop
             $('body').animate({
-                scrollTop: target_top - (nav_tops[$this.parent().index()])
+                scrollTop: target_id === "#first" ? 0 : target_top - (nav_tops[$this.parent().index()])
             });
 
             return false;
