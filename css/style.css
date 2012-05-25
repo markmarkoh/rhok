@@ -254,17 +254,32 @@ a:visited {
 }
 table {
   width: 100%;
-  background-color: #FFF;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
-  
+  background-color: #f5f4eb;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: inset 3px 2px 0 rgba(0,0,0,.3), 0 2px 3px rgba(0,0,0,.3);
+  -moz-box-shadow: inset 3px 2px 0 rgba(0,0,0,.3), 0 2px 3px rgba(0,0,0,.3);
+  -o-box-shadow: inset 3px 2px 0 rgba(0,0,0,.3), 0 2px 3px rgba(0,0,0,.3);
+  box-shadow: inset 3px 2px 0 rgba(0,0,0,.3), 0 2px 3px rgba(0,0,0,.3);
 }
 table th,
 table td {
   text-align: left;
-  padding: 10px;
+  padding: 10px 20px;
+  border-bottom: 1px solid #CCC;
+  -webkit-box-shadow: inset 0 2px 0 #FFF;
+  -moz-box-shadow: inset 0 2px 0 #FFF;
+  -o-box-shadow: inset 0 2px 0 #FFF;
+  box-shadow: inset 0 2px 0 #FFF;
+}
+tr:nth-child(odd) td {
+  background-color: #FFF;
+}
+table th {
+  background-color: #E7E6D6;
+  border-color: #BBB;
 }
 table tr:first-child th:first-child {
   -webkit-border-top-left-radius: 10px;
@@ -283,25 +298,43 @@ table tr:last-child th:first-child {
   -moz-border-radius-bottomleft: 10px;
   -o-border-bottom-left-radius: 10px;
   border-bottom-left-radius: 10px;
+  border: none;
 }
 table tr:last-child th:last-child {
   -webkit-border-bottom-right-radius: 10px;
   -moz-border-radius-bottomright: 10px;
   -o-border-bottom-right-radius: 10px;
   border-bottom-right-radius: 10px;
+  border: none;
 }
 table .table-header-date th {
   background-color: #00152F;
   color: #FFF;
+  -webkit-box-shadow: inset 0 2px 0 rgba(255,255,255,.2);
+  -moz-box-shadow: inset 0 2px 0 rgba(255,255,255,.2);
+  -o-box-shadow: inset 0 2px 0 rgba(255,255,255,.2);
+  box-shadow: inset 0 2px 0 rgba(255,255,255,.2);
+  border: none;
 }
 table .table-row-full th {
   background-color: #D0CEB5;
   text-align: center;
+  -webkit-box-shadow: inset 0 2px 0 rgba(255,255,255,.5);
+  -moz-box-shadow: inset 0 2px 0 rgba(255,255,255,.5);
+  -o-box-shadow: inset 0 2px 0 rgba(255,255,255,.5);
+  box-shadow: inset 0 2px 0 rgba(255,255,255,.5);
 }
 ul, ol {
   margin: 1em 0;
   padding: 0;
   list-style-type: none;
+}
+#fifth ul {
+  text-align: center;
+}
+#fifth ul li {
+  width: 32%;
+  display: inline-block;
 }
 abbr[title] {
   border:none;
@@ -336,7 +369,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'DigitalTS-MediumRegular', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'DigitalTS-Regular', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: normal;
 }
 h3,
@@ -373,6 +406,7 @@ header h3 {
 }
 section h3 {
   line-height: 32px;
+  font-family: 'DigitalTS-MediumRegular', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 section h3 a,
 section h3 a:visited {
@@ -380,6 +414,7 @@ section h3 a:visited {
 }
 section h4 {
   font-size: 18px;
+  font-family: 'DigitalTS-MediumRegular', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 .form_left {
   float: left;
@@ -403,6 +438,9 @@ section h4 {
 .registration li input[type=text] {
   border: none;
   padding: 10px 15px;
+  -webkit-box-shadow: inset 0 1px 0 rgba(0,0,0,.4);
+  -moz-box-shadow: inset 0 1px 0 rgba(0,0,0,.4);
+  -o-box-shadow: inset 0 1px 0 rgba(0,0,0,.4);
   box-shadow: inset 0 1px 0 rgba(0,0,0,.4);
   width: 100%;
   -webkit-box-sizing: border-box;
