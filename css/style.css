@@ -602,6 +602,9 @@ nav ul li.active a {
   background-color: rgba(249,51,0,.9);
   cursor: default;
 }
+nav ul li.nav-sponsors {
+  display: none;
+}
 header,
 .content,
 footer {
@@ -806,7 +809,7 @@ section header:after {
   }
   nav ul {
     margin: 0 auto;
-    width: 250px;
+    width: 200px;
     overflow: hidden;
   }
   nav ul li {
