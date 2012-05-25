@@ -15,7 +15,6 @@ function updateNavFn() {
         num_sections =   0,
         current_pos  =   0,
         previous_pos =   0,
-        scrolled     =   false,
         scroll_fn
         ;
 
@@ -24,7 +23,10 @@ function updateNavFn() {
         var id = $(val).attr('href');
 
         section_ids.push( id );
-        nav_tops.push ( $(val).offset().top );
+
+        //hacky. this fly at the coffee shop has it out for me. that's my excuse.
+        nav_tops.push ( key === 0 ? -40 : $(val).offset().top );
+
         section_tops.push ( $(id).offset().top );
     });
 
@@ -35,7 +37,7 @@ function updateNavFn() {
     //also, doc better
     scroll_fn = function() {
 
-        var scrollTop = $window.scrollTop() + 264;
+        var scrollTop = $window.scrollTop() + 250;
 
 
         // if scrollTop is greater than the next(or last) section top minus 120 px
@@ -87,7 +89,7 @@ function updateNavFn() {
             //we can't use translateY here because it does a literal translate and messes
             //up our scrollTop
             $('body').animate({
-                scrollTop: target_top - nav_tops[$this.parent().index()] + 40  //almost 42
+                scrollTop: target_top - (nav_tops[$this.parent().index()] - 40)  //almost 42
             });
 
             return false;
