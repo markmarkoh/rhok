@@ -1,6 +1,6 @@
   (function() {
         var $window = $(window),
-            $body = $('body'),
+            $body = $('html,body'),
             height = $('body').height(),
             isScrollingDown = true,
             currentScrollPos = 0,
