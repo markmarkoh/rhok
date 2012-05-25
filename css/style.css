@@ -329,6 +329,13 @@ ul, ol {
   padding: 0;
   list-style-type: none;
 }
+#fifth ul {
+  text-align: center;
+}
+#fifth ul li {
+  width: 32%;
+  display: inline-block;
+}
 abbr[title] {
   border:none;
 }
@@ -362,7 +369,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'DigitalTS-MediumRegular', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'DigitalTS-Regular', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: normal;
 }
 h3,
@@ -399,6 +406,7 @@ header h3 {
 }
 section h3 {
   line-height: 32px;
+  font-family: 'DigitalTS-MediumRegular', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 section h3 a,
 section h3 a:visited {
@@ -406,6 +414,7 @@ section h3 a:visited {
 }
 section h4 {
   font-size: 18px;
+  font-family: 'DigitalTS-MediumRegular', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 .form_left {
   float: left;
