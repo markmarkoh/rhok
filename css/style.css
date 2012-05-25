@@ -254,11 +254,49 @@ a:visited {
 }
 table {
   width: 100%;
+  background-color: #FFF;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  
 }
 table th,
 table td {
   text-align: left;
   padding: 10px;
+}
+table tr:first-child th:first-child {
+  -webkit-border-top-left-radius: 10px;
+  -moz-border-radius-topleft: 10px;
+  -o-border-top-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+table tr:first-child th:last-child {
+  -webkit-border-top-right-radius: 10px;
+  -moz-border-radius-topright: 10px;
+  -o-border-top-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+table tr:last-child th:first-child {
+  -webkit-border-bottom-left-radius: 10px;
+  -moz-border-radius-bottomleft: 10px;
+  -o-border-bottom-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+table tr:last-child th:last-child {
+  -webkit-border-bottom-right-radius: 10px;
+  -moz-border-radius-bottomright: 10px;
+  -o-border-bottom-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+table .table-header-date th {
+  background-color: #00152F;
+  color: #FFF;
+}
+table .table-row-full th {
+  background-color: #D0CEB5;
+  text-align: center;
 }
 ul, ol {
   margin: 1em 0;
@@ -298,7 +336,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'DigitalTS-Regular', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'DigitalTS-MediumRegular', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: normal;
 }
 h3,
@@ -339,6 +377,9 @@ section h3 {
 section h3 a,
 section h3 a:visited {
   color: #00152F !important;
+}
+section h4 {
+  font-size: 18px;
 }
 .form_left {
   float: left;
