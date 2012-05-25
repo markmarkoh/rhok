@@ -7,7 +7,7 @@
             prevScrollPos = 0,
             step = 1,
             isMobile = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/),
-            maxSteps = isMobile ? 25 : 55,
+            maxSteps = isMobile ? 15 : 55,
             rangeY = d3.scale.linear().range([0, maxSteps]);
 
 
