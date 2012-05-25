@@ -434,6 +434,7 @@ section h4 {
 .registration {
   overflow: hidden;
   text-align: center;
+  margin-bottom: 20px;
 }
 .registration label {
   text-indent: -9999px;
