@@ -25,9 +25,9 @@
 
       if ( T.isConnected() ) {
         handleLoggedInUser( T.currentUser );
-      } 
+      }
 
-      T("#login").connectButton({ 
+      T("#login").connectButton({
         size: "xlarge",
         authComplete: function(user) {
           $.post('twitter.php', {"handle": user.screenName, "name": user.name, "url": user.url, "img": user.profileImageUrl}, function(data) {
@@ -39,12 +39,18 @@
     });
 
     var handleLoggedInUser = function(user, isNewSignup) {
-    if (isNewSignup) {
-        $(attendeeTmpl)
-          .find('.name').text(user.name).end()
-          .find('.handle a').text('@' + user.screenName).attr('href', user.url).end()
-          .find('.image img').attr('src', user.profileImageUrl).end()
-          .prependTo( $('.participants') );
-    }
+      if (isNewSignup) {
+          $(attendeeTmpl)
+            .find('.name').text(user.name).end()
+            .find('.handle a').text('@' + user.screenName).attr('href', user.url).end()
+            .find('.image img').attr('src', user.profileImageUrl).end()
+            .prependTo( $('.participants') );
+      }
+      twttr.anywhere(function (T) {
+        T("#tbox").tweetBox({
+          label: "Help spread the word!",
+          defaultContent: "I'm hacking at RHoK Austin! You should too! http://rhokaustin.org"
+        });
+      });
     };
   });
