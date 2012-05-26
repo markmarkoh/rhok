@@ -336,6 +336,10 @@ ul, ol {
   width: 32%;
   display: inline-block;
 }
+#fifth ul li a {
+  display: block;
+  padding: 10px;
+}
 abbr[title] {
   border:none;
 }
@@ -427,8 +431,10 @@ section h4 {
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-.form_right {
-  float: left;
+.registration {
+  overflow: hidden;
+  text-align: center;
+  margin-bottom: 20px;
 }
 .registration label {
   text-indent: -9999px;
@@ -602,6 +608,9 @@ nav ul li.active a {
   background-color: rgba(249,51,0,.9);
   cursor: default;
 }
+nav ul li.nav-sponsors {
+  display: none;
+}
 header,
 .content,
 footer {
@@ -663,7 +672,7 @@ section:last-child {
   border-bottom-left-radius: 0;
 }
 footer {
-  height: 400px;
+  height: 200px;
   margin-left: 50px;
 }
 section img {
@@ -745,7 +754,7 @@ section header:after {
    Modify as content requires.
    ========================================================================== */
 
-@media only screen and (max-width: 920px) {
+@media only screen and (max-width: 940px) {
   #fifth ul li {
     width: 49%;
   }
@@ -806,7 +815,7 @@ section header:after {
   }
   nav ul {
     margin: 0 auto;
-    width: 250px;
+    width: 200px;
     overflow: hidden;
   }
   nav ul li {
@@ -900,10 +909,6 @@ section header:after {
     right: 0;
     opacity: 0.94;
     z-index: 0; 
-}
-
-.registration {
-  display: none;
 }
 
 .registration-loading {
