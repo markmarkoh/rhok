@@ -685,6 +685,7 @@ section ul.project-list li {
 .user-block {
   float: left;
   width: 33%;
+  padding-top: 4px;
 }
 .user-block dl {
   float: left;

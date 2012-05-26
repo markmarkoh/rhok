@@ -1,6 +1,6 @@
 <?php 
 
-require_once "../_/scripts/grab.php";
+require_once "_/scripts/grab.php";
 
 $con = mysql_connect($host,$user,$pass);
 if (!$con)
