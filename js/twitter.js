@@ -31,7 +31,7 @@
         size: "xlarge",
         authComplete: function(user) {
           $.post('twitter.php', {"handle": user.screenName, "name": user.name, "url": user.url, "img": user.profileImageUrl}, function(data) {
-          handleLoggedInUser(user, data.new);
+          handleLoggedInUser(user, data['new']);
       });
     }
       });
