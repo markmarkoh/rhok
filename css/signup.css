@@ -1,0 +1,197 @@
+h1 {
+  margin: 10px 0 0 0;
+}
+h2 {
+  margin: 0 0 10px 0;
+}
+#content, #header {
+  width: 750px;
+  text-align: center;
+  margin: auto;
+  padding: 0;
+}
+#summary_name {
+  font-size: 24px;
+}
+.skills-empty {
+  color: #999;
+}
+.skills {
+  margin: 20px 0;
+}
+.skill {
+  display: inline-block;
+  padding: 3px 6px 4px 6px;
+  margin: 7px;
+  color: #EEE;
+  border-radius: 6px;
+  white-space: nowrap;
+  cursor: pointer;
+  -moz-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -o-transition: all: 0.5s;
+}
+.skill.selected .back {
+  background: #F93300;
+}
+@keyframes flash-red {
+  0% {background: rgba(255,255,255,.6);}
+  50% {background: lightpink;}
+  100% {background: rgba(255,255,255,.6);}
+}
+@-moz-keyframes flash-red {
+  0% {background: rgba(255,255,255,.6);}
+  50% {background: lightpink;}
+  100% {background: rgba(255,255,255,.6);}
+}
+@-webkit-keyframes flash-red {
+  0% {background: rgba(255,255,255,.6);}
+  50% {background: lightpink;}
+  100% {background: rgba(255,255,255,.6);}
+}
+.red {
+  animation: flash-red 1s;
+  -moz-animation: flash-red 1s;
+  -webkit-animation: flash-red 1s;
+}
+li {
+  padding: 0 10px;
+}
+li input[type=text] {
+  border-radius: 5px;
+  margin-bottom: 20px;
+  border: none;
+  padding: 10px 15px;
+  box-shadow: inset 0 1px 0 rgba(0,0,0,0.4);
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: rgba(255,255,255,.6);
+  outline: none;
+  -webkit-transition: all linear .2s;
+  -moz-transition: all linear .2s;
+  -o-transition: all linear .2s;
+  transition: all linear .2s;
+}
+li input[type=text]:hover {
+  background-color: rgba(255,255,255,1);
+}
+li input[type=submit], li input[type=button] {
+  height: 38px;
+  width: 48%;
+  text-align: center;
+  color: #FFF;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  overflow: hidden;
+  padding: 7px 6px 10px 6px;
+  margin: 10px 0;
+  border: 1px solid rgba(0,0,0,.4);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #91968C;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255,255,255,.5)), color-stop(50%, rgba(255,255,255,.1)), color-stop(50%, rgba(0,0,0,.05)), color-stop(100%, rgba(0,0,0,0)));
+  background-image: -webkit-linear-gradient(top, rgba(255,255,255,.5) 0%, rgba(255,255,255,.1) 50%, rgba(0,0,0,.05) 50%, rgba(0,0,0,0) 100%);
+  background-image: -moz-linear-gradient(top, rgba(255,255,255,.5) 0%, rgba(255,255,255,.1) 50%, rgba(0,0,0,.05) 50%, rgba(0,0,0,0) 100%);
+  background-image: -ms-linear-gradient(top, rgba(255,255,255,.5) 0%, rgba(255,255,255,.1) 50%, rgba(0,0,0,.05) 50%, rgba(0,0,0,0) 100%);
+  background-image: -o-linear-gradient(top, rgba(255,255,255,.5) 0%, rgba(255,255,255,.1) 50%, rgba(0,0,0,.05) 50%, rgba(0,0,0,0) 100%);
+  background-image: linear-gradient(top, rgba(255,255,255,.5) 0%, rgba(255,255,255,.1) 50%, rgba(0,0,0,.05) 50%, rgba(0,0,0,0) 100%);
+  -webkit-background-clip: padding-box;
+  -webkit-transition: all linear .2s;
+  -moz-transition: all linear .2s;
+  -o-transition: all linear .2s;
+  transition: all linear .2s;
+  text-shadow: 0 -1px rgba(0,0,0,.4);
+  -webkit-box-shadow: 0 1px 0 #FFF, inset 0 1px 0 rgba(255,255,255,.4);
+  -moz-box-shadow: 0 1px 0 #FFF, inset 0 1px 0 rgba(255,255,255,.4);
+  -o-box-shadow: 0 1px 0 #FFF, inset 0 1px 0 rgba(255,255,255,.4);
+  box-shadow: 0 1px 0 #FFF, inset 0 1px 0 rgba(255,255,255,.4);
+}
+li input[type=submit]:hover, li input[type=button]:hover {
+  background-color: #E03004;
+}
+/*flip card stuff*/
+.skill {
+  position: relative;
+  width: 150px;
+  height: 30px;
+  font-size: 20px;
+  background: transparent;
+			
+  -webkit-perspective: 600px;
+  -moz-perspective: 600px;
+}
+.skill .front {
+  float: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 900;
+  width: inherit;
+  height: inherit;
+  padding: inherit;
+  text-align: center;
+  border-radius: inherit;
+  background: #333;
+  
+  -webkit-transform: rotateY(0deg);
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  
+  -moz-transform: rotateY(0deg);
+  -moz-transform-style: preserve-3d;
+  -moz-backface-visibility: hidden;
+  
+  /* -- transition is the magic sauce for animation -- */
+  -o-transition: all .4s linear 0.1s;
+  -ms-transition: all .4s linear 0.1s;
+  -moz-transition: all .4s linear 0.1s;
+  -webkit-transition: all .4s linear 0.1s;
+  transition: all .4s linear 0.1s;
+}
+.skill.selected .front {
+  z-index: 900;
+  
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+}
+
+.skill .back {
+  float: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 800;
+  width: inherit;
+  height: inherit;
+  padding: inherit;
+  border-radius: inherit;
+  
+  -webkit-transform: rotateY(-180deg);
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  
+  -moz-transform: rotateY(-180deg);
+  -moz-transform-style: preserve-3d;
+  -moz-backface-visibility: hidden;
+  
+  /* -- transition is the magic sauce for animation -- */
+  -o-transition: all .4s linear 0.1s;
+  -ms-transition: all .4s linear 0.1s;
+  -moz-transition: all .4s linear 0.1s;
+  -webkit-transition: all .4s linear 0.1s;
+  transition: all .4s linear 0.1s;
+}
+
+.skill.selected .back {
+  z-index: 1000;
+  
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+}
+
