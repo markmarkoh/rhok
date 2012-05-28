@@ -54,6 +54,7 @@ swipe.transition = function(old_slide, new_slide, duration) {
   this._slide(new_slide, duration);
 };
 
+var the_form = $('#the_form');
 var name_next_button = $('#name_next_button');
 var skills_next_button = $('#skills_next_button');
 var finish_button = $('#finish_button');
@@ -126,10 +127,29 @@ swipe.exit[2] = function() {
   }
 };
 
-finish_button.bind('click', function() {
+var signup_success = function(json, status, xhr) {
+  if (!json.success) {
+    signup_error(json.error, status, xhr);
+    return;
+  }
   reset_name();
   reset_skills();
   swipe.slide(0);
+};
+
+var signup_error = function(error, status, xhr) {
+  console.log('shit.');
+};
+
+finish_button.bind('click', function() {
+  $.ajax({
+    url: 'signup.php',
+    type: 'post',
+    dataType: 'json',
+    data: the_form.serialize(),
+    success: signup_success,
+    error: signup_fail
+  });
 });
 
 person_name.bind('focus', function() {
