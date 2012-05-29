@@ -148,7 +148,7 @@ finish_button.bind('click', function() {
     dataType: 'json',
     data: the_form.serialize(),
     success: signup_success,
-    error: signup_fail
+    error: signup_error
   });
 });
 
