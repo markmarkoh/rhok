@@ -66,10 +66,10 @@ var person_name = $('#name');
 var skills = $('#skills');
 var skill_name = $('#skill_name');
 
-var finished_image = $('#finished_image');
+var finished_images = $('#finished_images');
 
 var skills_data = ['php', 'python', 'ruby', 'java', 'c', 'c++', 'javascript', 'svg', 'graphic design', 'kicking ass', 'html', 'css', 'xml', 'json'];
-var finished_images = ['badass.jpeg', 'hack_all_things.jpg', 'not_bad.jpeg', 'pbj_time.gif', 'youre_the_man.jpg'];
+var finished_image_names = ['badass.jpeg', 'hack_all_things.jpg', 'not_bad.jpeg', 'pbj_time.gif', 'youre_the_man.jpg'];
 
 function add_skill(skill, selected) {
   if (skill.length <= 0)
@@ -96,6 +96,12 @@ function reset_skills() {
   reset_skill_name();
   $('#skills_tile .selected').removeClass('selected');
 }
+function flash_person_name() {
+  person_name.addClass('red');
+  window.setTimeout(function() {
+    person_name.removeClass('red');
+  }, 1100);
+}
 
 reset_name();
 reset_skills();
@@ -103,15 +109,11 @@ for (var i in skills_data) {
   add_skill(skills_data[i]);
 }
 
+for (var i in finished_image_names) {
+  finished_images.append($('<img>').attr('src', 'images/' + finished_image_names[i]).addClass('hidden'));
+}
+
 swipe.exit[1] = function() {
-  if (person_name.data('defaultState')) {
-    person_name.addClass('red');
-    window.setTimeout(function() {
-      person_name.removeClass('red');
-    }, 1100);
-    //TODO flash red
-    return false;
-  }
   person_name.blur();
 };
 
@@ -132,7 +134,9 @@ swipe.exit[2] = function() {
 };
 
 swipe.exit[3] = function() {
-  finished_image.attr('src', 'images/' + finished_images[Math.floor(Math.random() * finished_images.length)]);
+  finished_images.find('img').addClass('hidden');
+  var img_num = Math.floor(Math.random() * finished_image_names.length);
+  finished_images.find('img:eq(' + img_num + ')').removeClass('hidden');
 };
 
 var signup_success = function(json, status, xhr) {
@@ -155,6 +159,13 @@ var signup_error = function(error, status, xhr) {
 };
 
 finish_button.bind('click', function() {
+  if (person_name.data('defaultState')) {
+    //TODO ability to attach one-time callback to this slide
+    swipe.slide(1);
+    flash_person_name();
+    return;
+  }
+
   finish_button.addClass('pulse-orange');
   var skills_str = '';
   skills.find('.selected').each(function(index, item) {

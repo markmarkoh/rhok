@@ -13,6 +13,11 @@ h2 {
 #summary_name {
   font-size: 24px;
 }
+.finished_image.hidden {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+}
 .skills-empty {
   color: #999;
 }
@@ -50,9 +55,9 @@ h2 {
   100% {background: rgba(255,255,255,.6);}
 }
 .red {
-  animation: flash-red 1s;
-  -moz-animation: flash-red 1s;
-  -webkit-animation: flash-red 1s;
+  animation: flash-red 2s;
+  -moz-animation: flash-red 2s;
+  -webkit-animation: flash-red 2s;
 }
 @keyframes pulse-orange {
   0% {background-color: #91968C;}
