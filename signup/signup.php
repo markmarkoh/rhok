@@ -1,14 +1,4 @@
 <?php
-/*
- schema should be something like:
- signups:
-  id int auto_increment
-  name varchar not null
-  timestamp current_timestamp
- signup_skills:
-  signup_id int not null references signups (id)
-  skill varchar not null
-*/
 
 require_once('_/scripts/grab.php');
 
@@ -24,41 +14,49 @@ try {
   $db_conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass, array(PDO::FETCH_ASSOC => true));
 }
 catch (PDOException $e) {
-  $output['error'][] = "could not connect to database :[";
+  $output['errors'][] = "could not connect to database :[";
 }
 
 if (empty($output['errors'])) {
-  $query = "
-  INSERT INTO
-    signups (name)
-  VALUES
-    (:name)
-  ";
-  $stmt = $db_conn->prepare($query);
-  $stmt->execute(array('name' => $_POST['name']));
+  try {
+    $query = "
+    INSERT INTO
+      signups (name)
+    VALUES
+      (:name)
+    ";
+    $stmt = $db_conn->prepare($query);
+    $stmt->execute(array('name' => $_POST['name']));
+  
+    $query = "SELECT LAST_INSERT_ID()";
+    $signup_id = $db_conn->query($query);
+    if (empty($signup_id))
+      throw new Exception("could not retrieve signup ID");
 
-  $query = "SELECT LAST_INSERT_ID()";
-  $signup_id = $db_conn->query($query);
-  if (!empty($signup_id))
     $signup_id = current(current($result));
-
-  $query = "
-  INSERT INTO
-    signup_skills (signup_id, skill)
-  VALUES
-    (:signup_id, :skill)
-  ";
-  $stmt = $db_conn->prepare($query);
-  $params = array(
-    'signup_id' => $signup_id,
-    'skill' => ''
-  );
-  foreach (explode(',', $_POST['skills']) as $skill) {
-    $params['skill'] = $skill;
-    $stmt->execute($params);
+  
+    $query = "
+    INSERT INTO
+      signup_skills (signup_id, skill)
+    VALUES
+      (:signup_id, :skill)
+    ";
+    $stmt = $db_conn->prepare($query);
+    $params = array(
+      'signup_id' => $signup_id,
+      'skill' => ''
+    );
+    foreach (explode(',', $_POST['skills']) as $skill) {
+      $params['skill'] = $skill;
+      $stmt->execute($params);
+    }
+  
+    $output['response']['success'] = true;
   }
-
-  $output['response']['success'] = true;
+  catch (Exception $e) {
+    error_log($e->getMessage);
+    $output['errors'][] = "an error occured when writing your signup to the database :[";
+  }
 }
 
 header('Content-Type: application/json');
