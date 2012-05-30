@@ -131,7 +131,12 @@ swipe.exit[2] = function() {
   }
 };
 
+swipe.exit[3] = function() {
+  finished_image.attr('src', 'images/' + finished_images[Math.floor(Math.random() * finished_images.length)]);
+};
+
 var signup_success = function(json, status, xhr) {
+  finish_button.removeClass('pulse-orange');
   if (!json.response.success) {
     signup_error(json.error, status, xhr);
     return;
@@ -146,9 +151,11 @@ var signup_success = function(json, status, xhr) {
 
 var signup_error = function(error, status, xhr) {
   console.log('shit.');
+  finish_button.removeClass('pulse-orange');
 };
 
 finish_button.bind('click', function() {
+  finish_button.addClass('pulse-orange');
   var skills_str = '';
   skills.find('.selected').each(function(index, item) {
     skills_str += $(item).data('skill').replace(';', '') + ';';
@@ -164,8 +171,6 @@ finish_button.bind('click', function() {
     success: signup_success,
     error: signup_error
   });
-
-  finished_image.attr('src', 'images/' + finished_images[Math.floor(Math.random() * finished_images.length)]);
 });
 
 person_name.bind('focus', function() {

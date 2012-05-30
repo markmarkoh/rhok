@@ -54,6 +54,26 @@ h2 {
   -moz-animation: flash-red 1s;
   -webkit-animation: flash-red 1s;
 }
+@keyframes pulse-orange {
+  0% {background-color: #91968C;}
+  50%  {background-color: #E03004;}
+  100% {background-color: #91968C;}
+}
+@-moz-keyframes pulse-orange {
+  0% {background-color: #91968C;}
+  50%  {background-color: #E03004;}
+  100% {background-color: #91968C;}
+}
+@-webkit-keyframes pulse-orange {
+  0% {background-color: #91968C;}
+  50%  {background-color: #E03004;}
+  100% {background-color: #91968C;}
+}
+.pulse-orange {
+  animation: pulse-orange 1.5s linear 0 infinite;
+  -moz-animation: pulse-orange 1.5s linear 0 infinite;
+  -webkit-animation: pulse-orange 1.5s linear 0 infinite;
+}
 li {
   padding: 0 10px;
 }
