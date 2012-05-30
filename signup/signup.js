@@ -39,14 +39,14 @@ swipe.slide = function(index, duration) {
   this.transition(this.index, index, duration);
 };
 swipe.next = function() {
+  if (this._exit(this.index) === false)
+    return;
   this.transition(this.index, this.index + 1);
 };
 swipe.prev = function() {
   this.transition(this.index, this.index - 1);
 };
 swipe.transition = function(old_slide, new_slide, duration) {
-  if (this._exit(old_slide) === false)
-    return;
   for (var i = 0; i < this.slides.length; i++) {
     $(this.slides[i]).css('visibility', 'visible');
     $(this.slides[i]).find('input').attr('disabled', false);
@@ -66,7 +66,10 @@ var person_name = $('#name');
 var skills = $('#skills');
 var skill_name = $('#skill_name');
 
+var finished_image = $('#finished_image');
+
 var skills_data = ['php', 'python', 'ruby', 'java', 'c', 'c++', 'javascript', 'svg', 'graphic design', 'kicking ass', 'html', 'css', 'xml', 'json'];
+var finished_images = ['badass.jpeg', 'hack_all_things.jpg', 'not_bad.jpeg', 'pbj_time.gif', 'youre_the_man.jpg'];
 
 function add_skill(skill, selected) {
   if (skill.length <= 0)
@@ -74,6 +77,7 @@ function add_skill(skill, selected) {
   selected = (selected === undefined) ? false : true;
 
   var element = $('<div>').addClass('skill');
+  element.data('skill', skill);
   element.append($('<div>').addClass('front').html(skill));
   element.append($('<div>').addClass('back').html(skill));
   if (selected)
@@ -128,13 +132,16 @@ swipe.exit[2] = function() {
 };
 
 var signup_success = function(json, status, xhr) {
-  if (!json.success) {
+  if (!json.response.success) {
     signup_error(json.error, status, xhr);
     return;
   }
+  swipe.next();
   reset_name();
   reset_skills();
-  swipe.slide(0);
+  window.setTimeout(function() {
+    swipe.slide(0);
+  }, 3500);
 };
 
 var signup_error = function(error, status, xhr) {
@@ -142,14 +149,23 @@ var signup_error = function(error, status, xhr) {
 };
 
 finish_button.bind('click', function() {
+  var skills_str = '';
+  skills.find('.selected').each(function(index, item) {
+    skills_str += $(item).data('skill').replace(';', '') + ';';
+  });
+  if (skills_str.length > 0)
+    skills_str = skills_str.slice(0, -1);
+
   $.ajax({
     url: 'signup.php',
     type: 'post',
     dataType: 'json',
-    data: the_form.serialize(),
+    data: 'name=' + person_name.val() + '&skills=' + skills_str,
     success: signup_success,
     error: signup_error
   });
+
+  finished_image.attr('src', 'images/' + finished_images[Math.floor(Math.random() * finished_images.length)]);
 });
 
 person_name.bind('focus', function() {

@@ -1,6 +1,6 @@
 <?php
 
-require_once('_/scripts/grab.php');
+require_once('../_/scripts/grab.php');
 
 $output = array(
   'errors' => array(),
@@ -21,7 +21,7 @@ if (empty($output['errors'])) {
   try {
     $query = "
     INSERT INTO
-      signups (name)
+      reception_signups (name)
     VALUES
       (:name)
     ";
@@ -29,15 +29,17 @@ if (empty($output['errors'])) {
     $stmt->execute(array('name' => $_POST['name']));
   
     $query = "SELECT LAST_INSERT_ID()";
-    $signup_id = $db_conn->query($query);
+    $stmt = $db_conn->prepare($query);
+    $stmt->execute();
+    $signup_id = $stmt->fetch();
     if (empty($signup_id))
       throw new Exception("could not retrieve signup ID");
 
-    $signup_id = current(current($result));
-  
+    $signup_id = current($signup_id);
+
     $query = "
     INSERT INTO
-      signup_skills (signup_id, skill)
+      reception_signup_skills (signup_id, skill)
     VALUES
       (:signup_id, :skill)
     ";
@@ -46,7 +48,7 @@ if (empty($output['errors'])) {
       'signup_id' => $signup_id,
       'skill' => ''
     );
-    foreach (explode(',', $_POST['skills']) as $skill) {
+    foreach (explode(';', $_POST['skills']) as $skill) {
       $params['skill'] = $skill;
       $stmt->execute($params);
     }
