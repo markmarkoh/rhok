@@ -32,9 +32,6 @@ h2 {
   border-radius: 6px;
   white-space: nowrap;
   cursor: pointer;
-  -moz-transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-  -o-transition: all: 0.5s;
 }
 .skill.selected .back {
   background: #F93300;
@@ -55,9 +52,9 @@ h2 {
   100% {background: rgba(255,255,255,.6);}
 }
 .red {
-  animation: flash-red 2s;
-  -moz-animation: flash-red 2s;
-  -webkit-animation: flash-red 2s;
+  animation: flash-red 0.8s;
+  -moz-animation: flash-red 0.8s;
+  -webkit-animation: flash-red 0.8s;
 }
 @keyframes pulse-orange {
   0% {background-color: #91968C;}
@@ -95,12 +92,12 @@ li input[type=text] {
   box-sizing: border-box;
   background-color: rgba(255,255,255,.6);
   outline: none;
-  -webkit-transition: all linear .2s;
-  -moz-transition: all linear .2s;
-  -o-transition: all linear .2s;
-  transition: all linear .2s;
+  -webkit-transition: background-color linear .2s;
+  -moz-transition: background-color linear .2s;
+  -o-transition: background-color linear .2s;
+  transition: background-color linear .2s;
 }
-li input[type=text]:hover {
+li input[type=text]:focus {
   background-color: rgba(255,255,255,1);
 }
 li input[type=submit], li input[type=button] {
@@ -127,17 +124,17 @@ li input[type=submit], li input[type=button] {
   background-image: -o-linear-gradient(top, rgba(255,255,255,.5) 0%, rgba(255,255,255,.1) 50%, rgba(0,0,0,.05) 50%, rgba(0,0,0,0) 100%);
   background-image: linear-gradient(top, rgba(255,255,255,.5) 0%, rgba(255,255,255,.1) 50%, rgba(0,0,0,.05) 50%, rgba(0,0,0,0) 100%);
   -webkit-background-clip: padding-box;
-  -webkit-transition: all linear .2s;
-  -moz-transition: all linear .2s;
-  -o-transition: all linear .2s;
-  transition: all linear .2s;
+  -webkit-transition: background-color linear .2s;
+  -moz-transition: background-color linear .2s;
+  -o-transition: background-color linear .2s;
+  transition: background-color linear .2s;
   text-shadow: 0 -1px rgba(0,0,0,.4);
   -webkit-box-shadow: 0 1px 0 #FFF, inset 0 1px 0 rgba(255,255,255,.4);
   -moz-box-shadow: 0 1px 0 #FFF, inset 0 1px 0 rgba(255,255,255,.4);
   -o-box-shadow: 0 1px 0 #FFF, inset 0 1px 0 rgba(255,255,255,.4);
   box-shadow: 0 1px 0 #FFF, inset 0 1px 0 rgba(255,255,255,.4);
 }
-li input[type=submit]:hover, li input[type=button]:hover {
+li input[type=submit]:active, li input[type=button]:active {
   background-color: #E03004;
 }
 /*flip card stuff*/

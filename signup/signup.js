@@ -1,3 +1,4 @@
+//TODO ability to attach one-time callback to this slide
 if (!Modernizr.csstransforms)
   throw new Error("GTFO");
 
@@ -118,6 +119,10 @@ for (var i in finished_image_names) {
 }
 
 swipe.exit[1] = function() {
+  if (person_name.data('defaultState')) {
+    flash_person_name();
+    return false;
+  }
   person_name.blur();
 };
 
@@ -163,12 +168,6 @@ var signup_error = function(error, status, xhr) {
 };
 
 finish_button.bind('click', function() {
-  if (person_name.data('defaultState')) {
-    //TODO ability to attach one-time callback to this slide
-    swipe.slide(1);
-    flash_person_name();
-    return;
-  }
 
   finish_button.addClass('pulse-orange');
   var skills_str = '';
