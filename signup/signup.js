@@ -53,6 +53,10 @@ swipe.transition = function(old_slide, new_slide, duration) {
   }
   this._slide(new_slide, duration);
 };
+//disable touch swiping so that we can gate each slide
+swipe.onTouchStart = function() {
+  return;
+}
 
 var the_form = $('#the_form');
 var name_next_button = $('#name_next_button');
