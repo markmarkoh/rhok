@@ -83,8 +83,8 @@ function add_skill(skill, selected) {
 
   var element = $('<div>').addClass('skill');
   element.data('skill', skill);
-  element.append($('<div>').addClass('front').html(skill));
-  element.append($('<div>').addClass('back').html(skill));
+  element.append($('<div>').addClass('front').text(skill));
+  element.append($('<div>').addClass('back').text(skill));
   if (selected)
     element.addClass('selected');
   skills.prepend(element);
@@ -127,7 +127,7 @@ swipe.exit[1] = function() {
 };
 
 swipe.exit[2] = function() {
-  summary_name.html(person_name.val());
+  summary_name.text(person_name.val());
   summary_skills.html('');
   var selected_skills = $('#skills_tile .selected');
   if (selected_skills.length == 0) {
@@ -163,7 +163,7 @@ var signup_success = function(json, status, xhr) {
 };
 
 var signup_error = function(error, status, xhr) {
-  console.log('shit.');
+  alert('Signup has failed :[\nPlease try again later.');
   finish_button.removeClass('pulse-orange');
 };
 
@@ -232,6 +232,7 @@ $('input[type=button].next').bind('click', function() {
   swipe.next();
 });
 
-skills.on('click', '.skill', null, function() {
+skills.on('click', '.skill', function(e) {
   $(this).toggleClass('selected');
+  return false;
 });
