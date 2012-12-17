@@ -1,7 +1,8 @@
-# [RHoK Austin](http://rhokaustin.org)
+# [RHoK Austin](http://markmarkoh/rhok)
 
-Repo for the RHoK Austin interactive site (not yet released as of 5/14/12)
+Repo for the RHoK Austin interactive site, which includes Conway's Game of Life as a background scrolling decoration.
 
+Demo: [http://markmarkoh/rhok](http://markmarkoh/rhok)
 
 ## Quick start
 
