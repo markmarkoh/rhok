@@ -14,7 +14,7 @@
         window.rangeY = rangeY;
 
         var updateOnScroll = function() {
-            currentScrollPos = $body.scrollTop();
+            currentScrollPos = $body.scrollTop() || document.documentElement.scrollTop;
 
             if (currentScrollPos > prevScrollPos) {
                 isScrollingDown = true;
